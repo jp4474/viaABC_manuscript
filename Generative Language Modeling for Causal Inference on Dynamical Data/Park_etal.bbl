@@ -1,0 +1,167 @@
+\begin{thebibliography}{10}
+
+\bibitem{tavare1997inferring}
+Simon Tavar{\'e}, David~J Balding, Robert~C Griffiths, and Peter Donnelly.
+\newblock Inferring coalescence times from dna sequence data.
+\newblock {\em Genetics}, 145(2):505--518, 1997.
+
+\bibitem{marjoram2003markov}
+Paul Marjoram, John Molitor, Vincent Plagnol, and Simon Tavar{\'e}.
+\newblock Markov chain monte carlo without likelihoods.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  100(26):15324--15328, 2003.
+
+\bibitem{toni2009approximate}
+Tina Toni, David Welch, Natalja Strelkowa, Andreas Ipsen, and Michael~PH
+  Stumpf.
+\newblock Approximate bayesian computation scheme for parameter inference and
+  model selection in dynamical systems.
+\newblock {\em Journal of the Royal Society Interface}, 6(31):187--202, 2009.
+
+\bibitem{robert2008adaptivity}
+Christian~P Robert, Mark~A Beaumont, Jean-Michel Marin, and Jean-Marie Cornuet.
+\newblock Adaptivity for abc algorithms: the abc-pmc scheme.
+\newblock {\em arXiv preprint arXiv:0805.2256}, 2008.
+
+\bibitem{aakesson2021convolutional}
+Mattias {\AA}kesson, Prashant Singh, Fredrik Wrede, and Andreas Hellander.
+\newblock Convolutional neural networks as summary statistics for approximate
+  bayesian computation.
+\newblock {\em IEEE/ACM Transactions on Computational Biology and
+  Bioinformatics}, 19(6):3353--3365, 2021.
+
+\bibitem{fefferman2016testing}
+Charles Fefferman, Sanjoy Mitter, and Hariharan Narayanan.
+\newblock Testing the manifold hypothesis.
+\newblock {\em Journal of the American Mathematical Society}, 29(4):983--1049,
+  2016.
+
+\bibitem{balestriero2023cookbook}
+Randall Balestriero, Mark Ibrahim, Vlad Sobal, Ari Morcos, Shashank Shekhar,
+  Tom Goldstein, Florian Bordes, Adrien Bardes, Gregoire Mialon, Yuandong Tian,
+  et~al.
+\newblock A cookbook of self-supervised learning.
+\newblock {\em arXiv preprint arXiv:2304.12210}, 2023.
+
+\bibitem{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock Bert: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock In {\em Proceedings of the 2019 conference of the North American
+  chapter of the association for computational linguistics: human language
+  technologies, volume 1 (long and short papers)}, pages 4171--4186, 2019.
+
+\bibitem{he2022masked}
+Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Doll{\'a}r, and Ross
+  Girshick.
+\newblock Masked autoencoders are scalable vision learners.
+\newblock In {\em Proceedings of the IEEE/CVF conference on computer vision and
+  pattern recognition}, pages 16000--16009, 2022.
+
+\bibitem{yao2022masked}
+Yuchong Yao, Nandakishor Desai, and Marimuthu Palaniswami.
+\newblock Masked contrastive representation learning.
+\newblock {\em arXiv preprint arXiv:2211.06012}, 2022.
+
+\bibitem{li2023ti}
+Zhe Li, Zhongwen Rao, Lujia Pan, Pengyun Wang, and Zenglin Xu.
+\newblock Ti-mae: Self-supervised masked time series autoencoders.
+\newblock {\em arXiv preprint arXiv:2301.08871}, 2023.
+
+\bibitem{cheng2023timemae}
+Mingyue Cheng, Qi~Liu, Zhiding Liu, Hao Zhang, Rujiao Zhang, and Enhong Chen.
+\newblock Timemae: Self-supervised representations of time series with
+  decoupled masked autoencoders.
+\newblock {\em arXiv preprint arXiv:2303.00320}, 2023.
+
+\bibitem{jordan1999introduction}
+Michael~I Jordan, Zoubin Ghahramani, Tommi~S Jaakkola, and Lawrence~K Saul.
+\newblock An introduction to variational methods for graphical models.
+\newblock {\em Machine learning}, 37:183--233, 1999.
+
+\bibitem{Blei_2017}
+David~M. Blei, Alp Kucukelbir, and Jon~D. McAuliffe.
+\newblock Variational inference: A review for statisticians.
+\newblock {\em Journal of the American Statistical Association},
+  112(518):859--877, April 2017.
+
+\bibitem{kingma2013auto}
+Diederik~P Kingma, Max Welling, et~al.
+\newblock Auto-encoding variational bayes, 2013.
+
+\bibitem{dosovitskiy2020image}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
+  Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg
+  Heigold, Sylvain Gelly, et~al.
+\newblock An image is worth 16x16 words: Transformers for image recognition at
+  scale.
+\newblock {\em arXiv preprint arXiv:2010.11929}, 2020.
+
+\bibitem{higgins2017beta}
+Irina Higgins, Loic Matthey, Arka Pal, Christopher Burgess, Xavier Glorot,
+  Matthew Botvinick, Shakir Mohamed, and Alexander Lerchner.
+\newblock beta-vae: Learning basic visual concepts with a constrained
+  variational framework.
+\newblock In {\em International conference on learning representations}, 2017.
+
+\bibitem{rabanser2020effectiveness}
+Stephan Rabanser, Tim Januschowski, Valentin Flunkert, David Salinas, and Jan
+  Gasthaus.
+\newblock The effectiveness of discretization in forecasting: An empirical
+  study on neural time series models.
+\newblock {\em arXiv preprint arXiv:2005.10111}, 2020.
+
+\bibitem{ansari2024chronos}
+Abdul~Fatir Ansari, Lorenzo Stella, Caner Turkmen, Xiyuan Zhang, Pedro Mercado,
+  Huibin Shen, Oleksandr Shchur, Syama Rangapuram, Sebastian~Pineda Arango,
+  Shubham Kapoor, et~al.
+\newblock Chronos: Learning the language of time series.
+\newblock 2024.
+
+\bibitem{salinas2020deepar}
+David Salinas, Valentin Flunkert, Jan Gasthaus, and Tim Januschowski.
+\newblock Deepar: Probabilistic forecasting with autoregressive recurrent
+  networks.
+\newblock {\em International journal of forecasting}, 36(3):1181--1191, 2020.
+
+\bibitem{marin2012approximate}
+Jean-Michel Marin, Pierre Pudlo, Christian~P Robert, and Robin~J Ryder.
+\newblock Approximate bayesian computational methods.
+\newblock {\em Statistics and computing}, 22(6):1167--1180, 2012.
+
+\bibitem{simola2021adaptive}
+Umberto Simola, Jessi Cisewski-Kehe, Michael~U Gutmann, and Jukka Corander.
+\newblock Adaptive approximate bayesian computation tolerance selection.
+\newblock {\em Bayesian analysis}, 16(2):397--423, 2021.
+
+\bibitem{ishida2015cosmoabc}
+Emille~EO Ishida, Sandro~DP Vitenti, Mariana Penna-Lima, Jessi Cisewski,
+  Rafael~S de~Souza, Arlindo~MM Trindade, Ewan Cameron, Vinicius~C Busti, COIN
+  collaboration, et~al.
+\newblock Cosmoabc: likelihood-free inference via population monte carlo
+  approximate bayesian computation.
+\newblock {\em Astronomy and Computing}, 13:1--11, 2015.
+
+\bibitem{lotka1925elements}
+Alfred~James Lotka.
+\newblock {\em Elements of physical biology}.
+\newblock Williams \& Wilkins, 1925.
+
+\bibitem{volterra1928variations}
+Vito Volterra.
+\newblock Variations and fluctuations of the number of individuals in animal
+  species living together.
+\newblock {\em ICES Journal of Marine Science}, 3(1):3--51, 1928.
+
+\bibitem{gillespie1977exact}
+Daniel~T Gillespie.
+\newblock Exact stochastic simulation of coupled chemical reactions.
+\newblock {\em The journal of physical chemistry}, 81(25):2340--2361, 1977.
+
+\bibitem{dinh2024approximate}
+Khanh~N Dinh, Zijin Xiang, Zhihan Liu, and Simon Tavar{\'e}.
+\newblock Approximate bayesian computation sequential monte carlo via random
+  forests.
+\newblock {\em arXiv preprint arXiv:2406.15865}, 2024.
+
+\end{thebibliography}
