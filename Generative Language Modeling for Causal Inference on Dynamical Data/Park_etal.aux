@@ -28,10 +28,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Varitional Autoencoder}{5}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{5}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Model Architecture}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token and Mask tokens are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.}}{6}{figure.caption.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.}}{6}{figure.caption.4}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:enter-label}{{1}{6}{\textbf {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token and Mask tokens are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC}{figure.caption.4}{}}
+\newlabel{fig:enter-label}{{1}{6}{\textbf {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC}{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Pretraining}{6}{subsection.3.2}\protected@file@percent }
+\citation{}
+\citation{mckay2000comparison}
 \citation{higgins2017beta}
 \citation{rabanser2020effectiveness}
 \citation{ansari2024chronos}
@@ -46,8 +48,8 @@
 \citation{simola2021adaptive}
 \citation{devlin2019bert}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces viaABC}}{9}{algorithm.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{9}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Main Properties}{9}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{10}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Main Properties}{10}{subsection.4.1}\protected@file@percent }
 \citation{lotka1925elements}
 \citation{volterra1928variations}
 \citation{toni2009approximate}
@@ -85,16 +87,17 @@
 \bibcite{dosovitskiy2020image}{{16}{}{{}}{{}}}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{13}{section.8}\protected@file@percent }
-\bibcite{higgins2017beta}{{17}{}{{}}{{}}}
-\bibcite{rabanser2020effectiveness}{{18}{}{{}}{{}}}
-\bibcite{ansari2024chronos}{{19}{}{{}}{{}}}
-\bibcite{salinas2020deepar}{{20}{}{{}}{{}}}
-\bibcite{marin2012approximate}{{21}{}{{}}{{}}}
-\bibcite{simola2021adaptive}{{22}{}{{}}{{}}}
-\bibcite{ishida2015cosmoabc}{{23}{}{{}}{{}}}
-\bibcite{lotka1925elements}{{24}{}{{}}{{}}}
-\bibcite{volterra1928variations}{{25}{}{{}}{{}}}
-\bibcite{gillespie1977exact}{{26}{}{{}}{{}}}
-\bibcite{dinh2024approximate}{{27}{}{{}}{{}}}
+\bibcite{mckay2000comparison}{{17}{}{{}}{{}}}
+\bibcite{higgins2017beta}{{18}{}{{}}{{}}}
+\bibcite{rabanser2020effectiveness}{{19}{}{{}}{{}}}
+\bibcite{ansari2024chronos}{{20}{}{{}}{{}}}
+\bibcite{salinas2020deepar}{{21}{}{{}}{{}}}
+\bibcite{marin2012approximate}{{22}{}{{}}{{}}}
+\bibcite{simola2021adaptive}{{23}{}{{}}{{}}}
+\bibcite{ishida2015cosmoabc}{{24}{}{{}}{{}}}
+\bibcite{lotka1925elements}{{25}{}{{}}{{}}}
+\bibcite{volterra1928variations}{{26}{}{{}}{{}}}
+\bibcite{gillespie1977exact}{{27}{}{{}}{{}}}
+\bibcite{dinh2024approximate}{{28}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
 \gdef \@abspage@last{14}

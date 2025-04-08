@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  3 APR 2025 16:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  7 APR 2025 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1427,84 +1427,10 @@ isted Approximate Bayesian Computation), a novel
  []
 
 
-Package natbib Warning: Citation `tavare1997inferring' on page 3 undefined on i
-nput line 251.
-
-
-Package natbib Warning: Citation `marjoram2003markov' on page 3 undefined on in
-put line 251.
-
-
-Package natbib Warning: Citation `toni2009approximate' on page 3 undefined on i
-nput line 251.
-
-
-Package natbib Warning: Citation `robert2008adaptivity' on page 3 undefined on 
-input line 251.
-
-
-Package natbib Warning: Citation `aakesson2021convolutional' on page 3 undefine
-d on input line 253.
-
-
-Package natbib Warning: Citation `fefferman2016testing' on page 3 undefined on 
-input line 255.
-
-
 
 [3]
 
-Package natbib Warning: Citation `tavare1997inferring' on page 4 undefined on i
-nput line 274.
-
-
-Package natbib Warning: Citation `toni2009approximate' on page 4 undefined on i
-nput line 277.
-
-
-
 [4]
-
-Package natbib Warning: Citation `balestriero2023cookbook' on page 5 undefined 
-on input line 287.
-
-
-Package natbib Warning: Citation `devlin2019bert' on page 5 undefined on input 
-line 289.
-
-
-Package natbib Warning: Citation `he2022masked' on page 5 undefined on input li
-ne 289.
-
-
-Package natbib Warning: Citation `yao2022masked' on page 5 undefined on input l
-ine 291.
-
-
-Package natbib Warning: Citation `li2023ti' on page 5 undefined on input line 2
-93.
-
-
-Package natbib Warning: Citation `cheng2023timemae' on page 5 undefined on inpu
-t line 293.
-
-
-Package natbib Warning: Citation `jordan1999introduction' on page 5 undefined o
-n input line 297.
-
-
-Package natbib Warning: Citation `Blei_2017' on page 5 undefined on input line 
-297.
-
-
-Package natbib Warning: Citation `Blei_2017' on page 5 undefined on input line 
-297.
-
-
-Package natbib Warning: Citation `kingma2013auto' on page 5 undefined on input 
-line 299.
-
-
 Overfull \hbox (5.94101pt too wide) in paragraph at lines 301--302
 []\TU/TimesNewRoman(0)/m/n/12 Variational autoencoder consists of a probabilist
 ic encoder $\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z\OMS/cmsy/m/
@@ -1517,17 +1443,9 @@ S/cmsy/m/n/12 j\OML/cmm/m/it/12 z\OT1/cmr/m/n/12 )$\TU/TimesNewRoman(0)/m/n/12
 File: figures/model_architecture.png Graphic file (type bmp)
 <figures/model_architecture.png>
 
-Package natbib Warning: Citation `dosovitskiy2020image' on page 5 undefined on 
-input line 324.
-
-
-Package natbib Warning: Citation `he2022masked' on page 5 undefined on input li
-ne 324.
-
-
 
 [5]
-Overfull \hbox (12.59477pt too wide) in paragraph at lines 347--348
+Overfull \hbox (12.59477pt too wide) in paragraph at lines 345--346
 \TU/TimesNewRoman(0)/m/n/12 Suppose we have a mathematical model or data-genera
 ting process, denoted as $\OML/cmm/m/it/12 f$\TU/TimesNewRoman(0)/m/n/12 , whic
 h maps a $\OML/cmm/m/it/12 k$\TU/TimesNewRoman(0)/m/n/12 -dimensional
@@ -1537,47 +1455,10 @@ h maps a $\OML/cmm/m/it/12 k$\TU/TimesNewRoman(0)/m/n/12 -dimensional
 
 [6]
 
-Package natbib Warning: Citation `higgins2017beta' on page 7 undefined on input
- line 380.
-
-
-
 [7]
-
-Package natbib Warning: Citation `rabanser2020effectiveness' on page 8 undefine
-d on input line 390.
-
-
-Package natbib Warning: Citation `ansari2024chronos' on page 8 undefined on inp
-ut line 390.
-
-
-Package natbib Warning: Citation `salinas2020deepar' on page 8 undefined on inp
-ut line 392.
-
-
-Package natbib Warning: Citation `rabanser2020effectiveness' on page 8 undefine
-d on input line 392.
-
-
-Package natbib Warning: Citation `ansari2024chronos' on page 8 undefined on inp
-ut line 392.
-
-
-Package natbib Warning: Citation `ansari2024chronos' on page 8 undefined on inp
-ut line 394.
-
-
-Package natbib Warning: Citation `marin2012approximate' on page 8 undefined on 
-input line 404.
-
-
-Package natbib Warning: Citation `simola2021adaptive' on page 8 undefined on in
-put line 404.
-
 LaTeX Font Info:    Trying to load font information for U+bbm on input line 406
 .
-(C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
+ (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
@@ -1586,40 +1467,11 @@ put line 481.
 
 [8]
 
-Package natbib Warning: Citation `ishida2015cosmoabc' on page 9 undefined on in
-put line 520.
-
-
-Package natbib Warning: Citation `simola2021adaptive' on page 9 undefined on in
-put line 520.
-
-
-Package natbib Warning: Citation `devlin2019bert' on page 9 undefined on input 
-line 529.
-
-
-
 [9]
 
 [10]
 
-Package natbib Warning: Citation `lotka1925elements' on page 11 undefined on in
-put line 542.
-
-
-Package natbib Warning: Citation `volterra1928variations' on page 11 undefined 
-on input line 542.
-
-
-Package natbib Warning: Citation `toni2009approximate' on page 11 undefined on 
-input line 549.
-
-
 Package natbib Warning: Citation `dd' on page 11 undefined on input line 554.
-
-
-Package natbib Warning: Citation `gillespie1977exact' on page 11 undefined on i
-nput line 559.
 
 File: figures/LV_system.png Graphic file (type bmp)
 <figures/LV_system.png>
@@ -1628,16 +1480,7 @@ File: figures/LV_system.png Graphic file (type bmp)
 [11]
 File: figures/LV_system_density.png Graphic file (type bmp)
 <figures/LV_system_density.png>
-
-
-Package natbib Warning: Citation `dinh2024approximate' on page 12 undefined on 
-input line 598.
-
-
-Package natbib Warning: Citation `dinh2024approximate' on page 12 undefined on 
-input line 598.
-
-(Park_etal.bbl
+ (Park_etal.bbl
 
 [12]
 
@@ -1647,12 +1490,7 @@ Package natbib Warning: There were undefined citations.
 
 
 
-[14] (Park_etal.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+[14] (Park_etal.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1668,12 +1506,12 @@ Package rerunfilecheck Info: File `Park_etal.out' has not changed.
 (rerunfilecheck)             Checksum: 08BEF2EDEF5A47AF59B76501AEEEC70D;2147.
  ) 
 Here is how much of TeX's memory you used:
- 39456 strings out of 408639
- 805211 string characters out of 5744777
- 1269310 words of memory out of 5000000
- 61895 multiletter control sequences out of 15000+600000
- 576962 words of font info for 137 fonts, out of 8000000 for 9000
+ 39457 strings out of 408639
+ 805200 string characters out of 5744777
+ 1270310 words of memory out of 5000000
+ 61897 multiletter control sequences out of 15000+600000
+ 576954 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,18n,101p,1267b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,18n,101p,1265b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Park_etal.pdf (14 pages).

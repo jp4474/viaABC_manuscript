@@ -97,6 +97,12 @@ Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn,
   scale.
 \newblock {\em arXiv preprint arXiv:2010.11929}, 2020.
 
+\bibitem{mckay2000comparison}
+Michael~D McKay, Richard~J Beckman, and William~J Conover.
+\newblock A comparison of three methods for selecting values of input variables
+  in the analysis of output from a computer code.
+\newblock {\em Technometrics}, 42(1):55--61, 2000.
+
 \bibitem{higgins2017beta}
 Irina Higgins, Loic Matthey, Arka Pal, Christopher Burgess, Xavier Glorot,
   Matthew Botvinick, Shakir Mohamed, and Alexander Lerchner.
