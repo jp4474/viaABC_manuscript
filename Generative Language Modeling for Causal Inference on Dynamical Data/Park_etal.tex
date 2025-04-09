@@ -256,12 +256,11 @@ To address these limitations, we introduce viaABC, a novel statistical inference
 
 \newpage
 
-We show that
+The contributions of this paper can be summarize as follows:
 \begin{enumerate}
-\item VAE can learn a dense, vector representation of the data, eliminating the need for using summary statistic to represent data
-\item our framework is more efficient in terms of acceptance rate
-\item our framework is superior in terms of accuracy
-\item our framework is more flexible and robust towards experimental and biological noises
+\item \text{Generality}: VAE can learn a dense, vector representation of data, eliminating the need for using summary statistic to represent data
+\item \textit{Sample efficiency}: The proposed framework is empirically shown to require less number of simulations than previous methods
+\item \textit{Noise modeling}: Our framework is more flexible and robust towards experimental and biological noises
 \end{enumerate}
 
 Our work will primarily focus on multivariate time-series data. Our method employs self-supervised pre-training on simulated multivariate time-series data. During pre-training, the model captures temporal and cross-channel dependencies, constructing a latent distribution for each time step. This process yields an entangled representation of the time-series data. The pre-trained model then generates latent representations for simulated data, which are subsequently compared to the representation of $y^{obs}$ for parameter inference using sequential ABC.
@@ -405,13 +404,22 @@ Following the notation of \citep{marin2012approximate} and \citep{simola2021adap
 $$
 \pi_{\epsilon}(\theta | y_{obs}) = \int [\frac{f(y_{prop} | \theta)\pi(\theta)\mathbbm{1}_{A_{\epsilon, y_{obs}}}(y_{prop})}{\int_{A_{\epsilon, y_{obs}} \times \Theta } f(y_{prop} | \theta)\pi(\theta)dy_{prop}d\theta}]d_{y_{prop}}
 $$
-where $\mathbbm{1}_{A_{\epsilon, y_{obs}}}(\cdot)$ is the indicator function for the set $A_{\epsilon, y_{obs}} = \{y_{prop} | \rho (s(y_{obs}), s(y_{propr})) \leq \epsilon\}$
+where $\mathbbm{1}_{A_{\epsilon, y_{obs}}}(\cdot)$ is the indicator function for the set $A_{\epsilon, y_{obs}} = \{y_{prop} | \rho (s(y_{obs}), s(y_{propr})) \leq \epsilon\}$ and $p(\cdot,\cdot)$ is the distance function and $s(\cdot)$ is the summary statistic function. 
 
-viaABC follows the Adaptive Approximate Bayesian Sequential Monte Carlo (aABC-SMC) algorithm, a variant of ABC-SMC that incorporates adaptive thresholds. However, it introduces two key modifications: 
+In viaABC, we modify the set notation such that
+$$A_{\epsilon, y_{obs}} = \{y_{prop} | \rho (z_{obs}, z_{prop}) \leq \epsilon\}$$
+where $z_{obs}$ and $z_{prop}$ are latent representations of $y_{obs}$ and $y_{prop}$ respectively.
 
-1) Instead of comparing distances in the original data manifold using predefined summary statistics, viaABC encodes the data into latent vectors and evaluates distances within the latent space. The TSVMAE model incorporates a CLS token, which facilitates the aggregation of contextual information and allows the representation of a multivariate time series as a vector. Furthermore, the latent representations at each time step can be used to represent the multivariate time series as a matrix, or they can be aggregated into a vector by taking the mean. These latent representations enable the calculation of the distance between the simulated data and the observational data in the latent space.
+viaABC follows the Adaptive Approximate Bayesian Population Monte Carlo (aABC-PMC) algorithm \citep{simola2021adaptive}. However, it introduces three key modifications: 
 
-2) The initialization process leverages training data to accelerate convergence. In the aABC-PMC initialization, the algorithm samples $kN$ particles, then selects the top $N$ particles based on distance. In viaABC, we adapt this by calculating the distance between the observational data and all training samples, and selecting the top $N$ particles based on this distance. This modification is similar to aABC-SMC when $k = \frac{N_{training}}{N}$. A critical distinction is that in viaABC, the training samples are drawn using Latin Hypercube Sampling over the entire parameter domain, whereas aABC-PMC relies on pre-defined priors.
+\textbf{Distance Gauge}: Instead of comparing distances in the original data manifold using predefined summary statistics, viaABC encodes the data into latent vectors and evaluates distances within the latent space. The TSVMAE model incorporates a CLS token, which facilitates the aggregation of contextual information and enables the representation of a multivariate time series as a single vector. This vector is then compared between simulated and observational data using cosine similarity.
+
+%Furthermore, the latent representations at each time step can be used to represent the multivariate time series as a matrix, or they can be aggregated into a vector by taking the mean. These latent representations enable the calculation of the distance between the simulated data and the observational data in the latent space.
+
+\textbf{Initialization}: The initialization process leverages training data to accelerate convergence. In the aABC-PMC initialization, the algorithm samples $kN$ particles, then selects the top $N$ particles based on sorted distance\citep{simola2021adaptive}. In viaABC, we adapt this by calculating the distance between the observational data and all training samples, and selecting the top $N$ particles based on this distance. This modification is similar to aABC-SMC when $k = {N_{training}}/{N}$. A critical distinction is that in viaABC, the training samples are drawn using Latin Hypercube Sampling over the entire parameter domain, whereas aABC-PMC relies on pre-defined priors.
+
+\textbf{Stoping Rule}: 
+A few ideas have been introduced to determine how to stop in a sequential ABC algorithm. Ishida et al. \citep{ishida2015cosmoabc} proposed a stopping rule once the acceptance rate of the algorithm  falls below a certain threshold which is estimated based on the sequential ABC posterior distributions. Simola et. al \citep{simola2021adaptive} proposed using a stopping rule based on estimated quantile of the ABC posterior distributions where $q_t > 0.99$ and $ t \geq 3$. In our work, we adapt the stopping rule proposed by Simola et al and use $\epsilon_t < 0.01$ and $ t \geq 3$ as our stopping criterion. 0.01 is an arbitrary chosen threshold which has shown to work well in our examples.
 
 %In the next section, we compare various pooling strategies, including CLS pooling, mean pooling, and contextual embeddings, alongside different distance metrics such as L1 distance, L2 distance, cosine similarity, and BERTScore.
 
@@ -515,9 +523,6 @@ viaABC follows the Adaptive Approximate Bayesian Sequential Monte Carlo (aABC-SM
 \EndFor
 \end{algorithmic}
 \end{algorithm}
-
-\textbf{Stoping Rule}: 
-A few ideas have been introduced to determine how to stop in a sequential ABC algorithm. Ishida et al. \citep{ishida2015cosmoabc} proposed a stopping rule once the acceptance rate of the algorithm  falls below a certain threshold which is estimated based on the sequential ABC posterior distributions. Simola et. al \citep{simola2021adaptive} proposed using a stopping rule based on estimated quantile of the ABC posterior distributions where $q_t > 0.99$ and $ t \geq 3$. In our work, we adopt the same stopping rule proposed by Simola et al.
 
 % \subsection{Model Selection}
 % Based on ELBO?
