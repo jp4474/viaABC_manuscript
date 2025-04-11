@@ -1,19 +1,34 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand*\HyPL@Entry[1]{}
-\HyPL@Entry{0<</S/D>>}
 \citation{tavare1997inferring}
 \citation{marjoram2003markov}
 \citation{toni2009approximate}
 \citation{robert2008adaptivity}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \citation{aakesson2021convolutional}
 \citation{fefferman2016testing}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}{section.1}\protected@file@percent }
 \citation{tavare1997inferring}
 \citation{toni2009approximate}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{4}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}ABC}{4}{subsection.2.1}\protected@file@percent }
 \citation{balestriero2023cookbook}
+\@writefile{toc}{\contentsline {paragraph}{ABC}{3}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ABC Rejection}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Sequential ABC}{3}{section*.4}\protected@file@percent }
 \citation{devlin2019bert}
 \citation{he2022masked}
 \citation{yao2022masked}
@@ -23,15 +38,16 @@
 \citation{Blei_2017}
 \citation{Blei_2017}
 \citation{kingma2013auto}
+\@writefile{toc}{\contentsline {paragraph}{Masked Modeling}{4}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Varitional Autoencoder}{4}{section*.6}\protected@file@percent }
 \citation{dosovitskiy2020image,he2022masked}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Masked Modeling}{5}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Varitional Autoencoder}{5}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{5}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Model Architecture}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.}}{6}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Results}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Temporal Patching}{5}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Variational Latent Space Representation}{5}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Pretraining}{5}{section*.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Tokenized encoding and sequential Monte Carlo to generate posterior distribution of parameters}. {\color  {magenta}{this figure will be the full schematic of VIA-ABC}}.   During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.\relax }}{6}{figure.caption.10}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:enter-label}{{1}{6}{\textbf {Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Pretraining}{6}{subsection.3.2}\protected@file@percent }
+\newlabel{fig:enter-label}{{1}{6}{\textbf {Tokenized encoding and sequential Monte Carlo to generate posterior distribution of parameters}. \blue {this figure will be the full schematic of VIA-ABC}. \\ During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.\relax }{figure.caption.10}{}}
 \citation{}
 \citation{mckay2000comparison}
 \citation{higgins2017beta}
@@ -43,35 +59,31 @@
 \citation{ansari2024chronos}
 \citation{marin2012approximate}
 \citation{simola2021adaptive}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}viaABC}{8}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}VIA-ABC}{9}{subsection.2.1}\protected@file@percent }
 \citation{ishida2015cosmoabc}
 \citation{simola2021adaptive}
-\citation{devlin2019bert}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces viaABC}}{9}{algorithm.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{10}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Main Properties}{10}{subsection.4.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces viaABC\relax }}{10}{algorithm.1}\protected@file@percent }
 \citation{lotka1925elements}
 \citation{volterra1928variations}
 \citation{toni2009approximate}
+\citation{dinh2024approximate}
+\citation{dinh2024approximate}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Learning and inferring predator-prey dynamics using VIA-ABC}. Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.\relax }}{13}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:lotka-volterra}{{2}{13}{\textbf {Learning and inferring predator-prey dynamics using VIA-ABC}. Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.\relax }{figure.caption.13}{}}
+\citation{devlin2019bert}
 \citation{dd}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Means and variances of marginal posterior distributions for the deterministic Lotka-Volterra model from viaABC, ABC-DRF, ABC-SMC and ABC-SMC-DRF. The best result for each statistic across different algorithms is in bold (E(a), E(b) closest to true values (a, b) = (1, 1), and lowest variance in each statistic). Results are taken from Dinh et al. \citep  {dinh2024approximate}.\relax }}{14}{table.caption.14}\protected@file@percent }
+\newlabel{tab:lotka_volterra_results}{{1}{14}{Means and variances of marginal posterior distributions for the deterministic Lotka-Volterra model from viaABC, ABC-DRF, ABC-SMC and ABC-SMC-DRF. The best result for each statistic across different algorithms is in bold (E(a), E(b) closest to true values (a, b) = (1, 1), and lowest variance in each statistic). Results are taken from Dinh et al. \citep {dinh2024approximate}.\relax }{table.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experiments}{14}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Main Properties}{14}{subsection.3.1}\protected@file@percent }
 \citation{gillespie1977exact}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Dataset}{11}{section.5}\protected@file@percent }
-\citation{dinh2024approximate}
-\citation{dinh2024approximate}
 \bibstyle{unsrt}
 \bibdata{refs}
 \bibcite{tavare1997inferring}{{1}{}{{}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Reconstruction of observational data, the ground truth and the observational data of the Lotka-Volterra system.}}{12}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:enter-label}{{2}{12}{Reconstruction of observational data, the ground truth and the observational data of the Lotka-Volterra system}{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}}{12}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:enter-label}{{3}{12}{Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively}{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{12}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Deterministic Lotka-Volterra model}{12}{subsection.6.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Means and variances of marginal posterior distributions for the deterministic Lotka-Volterra model from viaABC, ABC-DRF, ABC-SMC and ABC-SMC-DRF. The best result for each statistic across different algorithms is in bold (E(a), E(b) closest to true values (a, b) = (1, 1), and lowest variance in each statistic). Results are taken from Dinh et al. \citep  {dinh2024approximate}.}}{12}{table.caption.9}\protected@file@percent }
-\newlabel{tab:lotka_volterra_results}{{1}{12}{Means and variances of marginal posterior distributions for the deterministic Lotka-Volterra model from viaABC, ABC-DRF, ABC-SMC and ABC-SMC-DRF. The best result for each statistic across different algorithms is in bold (E(a), E(b) closest to true values (a, b) = (1, 1), and lowest variance in each statistic). Results are taken from Dinh et al. \citep {dinh2024approximate}}{table.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Stochastic Susceptible-Infected-Recovered model}{12}{subsection.6.2}\protected@file@percent }
 \bibcite{marjoram2003markov}{{2}{}{{}}{{}}}
 \bibcite{toni2009approximate}{{3}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{15}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}{section.5}\protected@file@percent }
 \bibcite{robert2008adaptivity}{{4}{}{{}}{{}}}
 \bibcite{aakesson2021convolutional}{{5}{}{{}}{{}}}
 \bibcite{fefferman2016testing}{{6}{}{{}}{{}}}
@@ -85,8 +97,6 @@
 \bibcite{Blei_2017}{{14}{}{{}}{{}}}
 \bibcite{kingma2013auto}{{15}{}{{}}{{}}}
 \bibcite{dosovitskiy2020image}{{16}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{13}{section.8}\protected@file@percent }
 \bibcite{mckay2000comparison}{{17}{}{{}}{{}}}
 \bibcite{higgins2017beta}{{18}{}{{}}{{}}}
 \bibcite{rabanser2020effectiveness}{{19}{}{{}}{{}}}
@@ -100,4 +110,4 @@
 \bibcite{gillespie1977exact}{{27}{}{{}}{{}}}
 \bibcite{dinh2024approximate}{{28}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{14}
+\gdef \@abspage@last{18}
