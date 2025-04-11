@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.16)  11 APR 2025 12:21
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.16)  11 APR 2025 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1370,37 +1370,29 @@ Overfull \hbox (1.27858pt too wide) in paragraph at lines 297--298
 iational inference (VI) has been proposed as a machine learn-
  []
 
-
-Overfull \hbox (17.36014pt too wide) in paragraph at lines 317--317
-[][]\TU/MinionPro(0)/b/n/14.4 Inferring parameters from learned representations
- of the simulated data 
- []
-
-[4]
+[4] [5] [6]
 File: figures/model_architecture.png Graphic file (type bmp)
 <figures/model_architecture.png>
- [5] [6] [7]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 419
+ [7] [8]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 430
 .
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [8]
+)
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 494.
- [9]
-[10] [11]
-File: figures/figure2.pdf Graphic file (type pdf)
-<use figures/figure2.pdf>
+put line 505.
+ [9] [10]
+[11]
 
+LaTeX Warning: Reference `fig:lotka-volterra' on page 12 undefined on input lin
+e 569.
 
-LaTeX Warning: Float too large for page by 97.67319pt on input line 565.
+[12]
 
-[12] [13]
+Package natbib Warning: Citation `dd' on page 13 undefined on input line 632.
 
-Package natbib Warning: Citation `dd' on page 14 undefined on input line 626.
-
-[14] (./Park_etal.bbl [15] [16] [17]
+[13] (./Park_etal.bbl [14] [15] [16]
 Underfull \hbox (badness 2951) in paragraph at lines 168--172
 []\TU/MinionPro(0)/m/n/12 Khanh N Dinh, Zijin Xiang, Zhihan Liu, and Simon Tava
 ré.  Approximate
@@ -1410,7 +1402,7 @@ ré.  Approximate
 
 Package natbib Warning: There were undefined citations.
 
-[18] (./Park_etal.aux)
+[17] (./Park_etal.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1419,16 +1411,19 @@ L3 programming layer <2024-02-20>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `Park_etal.out' has not changed.
 (rerunfilecheck)             Checksum: 7D9EEF8075C318AEE4BA637817C553B9;614.
  ) 
 Here is how much of TeX's memory you used:
- 39464 strings out of 474773
- 817218 string characters out of 5757724
- 1934839 words of memory out of 5000000
- 60928 multiletter control sequences out of 15000+600000
+ 39455 strings out of 474773
+ 816991 string characters out of 5757724
+ 1935839 words of memory out of 5000000
+ 60920 multiletter control sequences out of 15000+600000
  576186 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 91i,18n,99p,1265b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,18n,99p,1265b,543s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Park_etal.pdf (18 pages).
+Output written on Park_etal.pdf (17 pages).
