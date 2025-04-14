@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  9 APR 2025 18:45
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  14 APR 2025 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1281,43 +1281,37 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthR=\skip85
 \@temptokenb=\toks52
 )
-(Park_etal.aux
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-
-LaTeX Warning: Label `fig:enter-label' multiply defined.
-
-)
+(Park_etal.aux)
 \openout1 = `Park_etal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 202.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 20
-2.
- (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/tipa\t3cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 195.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 19
+5.
+
+(C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/tipa\t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 202.
-LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1327,15 +1321,15 @@ LaTeX Font Info:    ... okay on input line 202.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(54.2025pt, 505.89pt, 54.2025pt)
-* v-part:(T,H,B)=(54.2025pt, 686.56499pt, 54.2025pt)
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=505.89pt
-* \textheight=686.56499pt
-* \oddsidemargin=-18.06749pt
-* \evensidemargin=-18.06749pt
-* \topmargin=-55.06749pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -1378,119 +1372,135 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 \symgns@font=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/TimesNewRoman(0)/m/n --> TS1/TimesNewRoman(0)/b/n o
-n input line 202.
-Package gensymb Info: Math companion symbols declared on input line 202.
-LaTeX Info: Redefining \degree on input line 202.
-LaTeX Info: Redefining \celsius on input line 202.
+n input line 195.
+Package gensymb Info: Math companion symbols declared on input line 195.
+LaTeX Info: Redefining \degree on input line 195.
+LaTeX Info: Redefining \celsius on input line 195.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 202.
-LaTeX Info: Redefining \ohm on input line 202.
-Package gensymb Info: Using \textohm for \ohm on input line 202.
-Package gensymb Info: Using \textmu for \micro on input line 202.
-Package hyperref Info: Link coloring OFF on input line 202.
+erthousand on input line 195.
+LaTeX Info: Redefining \ohm on input line 195.
+Package gensymb Info: Using \textohm for \ohm on input line 195.
+Package gensymb Info: Using \textmu for \micro on input line 195.
+Package hyperref Info: Link coloring OFF on input line 195.
 
 (Park_etal.out) (Park_etal.out)
 \@outlinefile=\write4
 \openout4 = `Park_etal.out'.
 
 \c@lstlisting=\count406
-LaTeX Font Info:    Trying to load font information for U+msa on input line 210
+LaTeX Font Info:    Trying to load font information for U+msa on input line 220
 .
 
 (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 210
+LaTeX Font Info:    Trying to load font information for U+msb on input line 220
 .
 
 (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for TS1+TimesNewRoman(0) on
- input line 210.
-LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 210.
+ input line 220.
+LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 220.
 
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead on input line 210.
+(Font)              using `TS1/cmr/m/n' instead on input line 220.
 
 
 
 [1
 
 ]
-
-[2]
-Overfull \hbox (1.32396pt too wide) in paragraph at lines 232--233
-[]\TU/TimesNewRoman(0)/m/n/10.95 We introduce viaABC (Variational Inference Ass
-isted Approximate Bayesian Computation), a novel
+Overfull \hbox (2.1265pt too wide) in paragraph at lines 262--263
+[]\TU/TimesNewRoman(0)/m/n/12 Our work will primarily focus on multivariate tim
+e-series data. Our method employs self-supervised
  []
 
 
+
+[2]
 
 [3]
 
 [4]
-Overfull \hbox (5.94101pt too wide) in paragraph at lines 300--301
-[]\TU/TimesNewRoman(0)/m/n/12 Variational autoencoder consists of a probabilist
-ic encoder $\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 z\OMS/cmsy/m/
-n/12 j\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$ \TU/TimesNewRoman(0)/m/n/12 and a pr
-obabilistic decoder $\OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OM
-S/cmsy/m/n/12 j\OML/cmm/m/it/12 z\OT1/cmr/m/n/12 )$\TU/TimesNewRoman(0)/m/n/12 
-. 
- []
-
-File: figures/model_architecture.png Graphic file (type bmp)
-<figures/model_architecture.png>
-
 
 [5]
-Overfull \hbox (12.59477pt too wide) in paragraph at lines 344--345
-\TU/TimesNewRoman(0)/m/n/12 Suppose we have a mathematical model or data-genera
-ting process, denoted as $\OML/cmm/m/it/12 f$\TU/TimesNewRoman(0)/m/n/12 , whic
-h maps a $\OML/cmm/m/it/12 k$\TU/TimesNewRoman(0)/m/n/12 -dimensional
- []
-
-
 
 [6]
-
-[7]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 405
+File: figures/model_architecture.png Graphic file (type bmp)
+<figures/model_architecture.png>
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 424
 .
  (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 
+[7]
+
 [8]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 489.
+put line 508.
 
 
 [9]
+Overfull \hbox (13.5191pt too wide) in paragraph at lines 559--559
+[][]\TU/TimesNewRoman(0)/b/n/14.4 Parameter inference from learned representati
+ons of noisy dynamical input 
+ []
+
+File: figures/figure2.jpeg Graphic file (type bmp)
+<figures/figure2.jpeg>
+
 
 [10]
+Overfull \hbox (12.37769pt too wide) in paragraph at lines 629--629
+[][]\TU/TimesNewRoman(0)/b/n/14.4 Characterizing the effects of hyperparameters
+ on VIA-ABC’s performance 
+ []
 
-Package natbib Warning: Citation `dd' on page 11 undefined on input line 559.
 
-File: figures/LV_system.png Graphic file (type bmp)
-<figures/LV_system.png>
+Package natbib Warning: Citation `dd' on page 11 undefined on input line 642.
+
 
 
 [11]
-File: figures/LV_system_density.png Graphic file (type bmp)
-<figures/LV_system_density.png>
- (Park_etal.bbl
 
 [12]
 
-[13])
+[13]
+
+LaTeX Warning: Reference `fig:lotka-volterra' on page 14 undefined on input lin
+e 687.
+
+
+Overfull \hbox (16.17542pt too wide) in paragraph at lines 684--689
+\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/
+m/it/12 ; y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$\TU/TimesNewRom
+an(0)/m/n/12 evaluated at , by setting $\OML/cmm/m/it/12 ^^R \OT1/cmr/m/n/12 = 
+(1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1)$\TU/TimesNewRoman(0)/m/n/12 . This form
+s our noisy input data $\OML/cmm/m/it/12 s[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12
+ f\OML/cmm/m/it/12 x[]; y[]; [] ; x[]; y[]\OMS/cmsy/m/n/12 g$
+ []
+
+(Park_etal.bbl
+
+[14]
+Underfull \hbox (badness 1412) in paragraph at lines 99--104
+[]\TU/TimesNewRoman(0)/m/n/12 Irina Higgins, Loic Matthey, Arka Pal, Christophe
+r Burgess, Xavier Glorot, Matthew
+ []
+
+
+
+[15])
 
 Package natbib Warning: There were undefined citations.
 
 
 
-[14] (Park_etal.aux)
+[16] (Park_etal.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1500,18 +1510,18 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Park_etal.out' has not changed.
-(rerunfilecheck)             Checksum: 08BEF2EDEF5A47AF59B76501AEEEC70D;2147.
+(rerunfilecheck)             Checksum: 76CE7F8DB513B4CB8AC088A4199D7EB6;195.
  ) 
 Here is how much of TeX's memory you used:
- 39457 strings out of 408639
- 805200 string characters out of 5744777
- 1266310 words of memory out of 5000000
- 61897 multiletter control sequences out of 15000+600000
+ 39448 strings out of 408639
+ 804953 string characters out of 5744777
+ 1266243 words of memory out of 5000000
+ 61888 multiletter control sequences out of 15000+600000
  576954 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,18n,101p,1265b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,18n,101p,1267b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Park_etal.pdf (14 pages).
+Output written on Park_etal.pdf (16 pages).
