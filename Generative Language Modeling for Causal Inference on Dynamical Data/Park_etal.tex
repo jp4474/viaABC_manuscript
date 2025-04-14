@@ -10,7 +10,7 @@
 \usepackage{bbm}
 
 % this gives reasonable margins for NIH forms after the 104% print
-\geometry{left=0.75in,right=0.75in, top=0.75in, bottom=0.75in, letterpaper}  
+\geometry{letterpaper, margin=1in} % 1 inch margins
 \usepackage[xetex]{graphicx} % allows us to manipulate graphics.
 % Replace option [] with pdftex if you don't use Xe(La)TeX
 \usepackage{color}
@@ -23,7 +23,6 @@
 % line spacing: \doublespacing, \onehalfspacing, \singlespacing
 \usepackage{setspace}
 \singlespacing
-\setstretch{0.95} % shrink line spacing a little bit
 % allows text flowing around figs
 % use \begin{wrapfigure}{x}{width} where x = r(ight) or l(eft)
 \usepackage{wrapfig}
@@ -71,7 +70,7 @@
 %\setmainfont[BoldFont={Minion Pro Bold.otf}, ItalicFont={Minion Pro Italic.otf}]{Minion Pro Reg.otf} %%% for overleaf
 %\setmainfont{Utopia Std}
 %\setmainfont{Palatino Linotype}
-%\setmainfont{Minion Pro}
+%\setmainfont{Minion Pro} % <------ causes error on windows
 \setmainfont{Times New Roman}
 %:CITATION STYLE
 % natbib package: square,curly, angle(brackets)
@@ -120,14 +119,8 @@ allbordercolors = {white}
 \newcommand{\tighten}{\vspace{-0.35cm}}
 \newcommand{\tightenabit}{\vspace{-0.15cm}}
 
-\newcommand{\khishort}{Ki67$^\text{high}$~}
-\newcommand{\kloshort}{Ki67$^\text{low}$~}
 \newcommand{\ie}{\textit{i.e.}~}
-\newcommand{\bpos}{BrdU$^\text{pos}$~}
-\newcommand{\bneg}{BrdU$^\text{neg}$~}
-\newcommand{\bposshort}{BrdU$^\text{pos}$}
-\newcommand{\bnegshort}{BrdU$^\text{neg}$}
-
+\newcommand{\etal}{\textit{et al}}
 
 % how to highlight my name in reference lists - choose one of the following
 \newcommand{\myemphasis}[1]{\textbf{\underline{#1}}} 
@@ -146,7 +139,7 @@ allbordercolors = {white}
 \usepackage{color}
 \definecolor{mygray}{rgb}{0.2, 0.2, 0.2}
 \newcommand{\red}[1]{{\color{red}{#1}}}
-\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\newcommand{\blue}[1]{{\color{magenta}{#1}}}
 \newcommand{\cyan}[1]{{\color{cyan}{#1}}}
 \newcommand{\gray}[1]{{\color{mygray}{#1}}}
 % Standard stuff
@@ -200,30 +193,30 @@ allbordercolors = {white}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Generative Language Modeling for Causal Inference\\ on Dynamical Data}
+\title{Generative Language Modeling for Bayesian Inference on Dynamical Data}
 \author[1]{Jun Won Park}
 \author[1]{Sanket Rane}
 \affil[1]{Irving Institute for Cancer Dynamics, Columbia University, New York, NY, USA}
 %\setcounter{Maxaffil}{0}
 
 \maketitle
-
-\newpage
-
-\section*{Contents}
-
-\begin{enumerate}
-\item Introduction
-\vspace{6mm}
-\item Methods
-\vspace{6mm}
-\item Results
-\vspace{6mm}
-\item Discussion
-\end{enumerate}
-
-\newpage
-
+%
+%\newpage
+%
+%\section*{Contents}
+%
+%\begin{enumerate}
+%\item Introduction
+%\vspace{6mm}
+%\item Methods
+%\vspace{6mm}
+%\item Results
+%\vspace{6mm}
+%\item Discussion
+%\end{enumerate}
+%
+%\newpage
+%
 \begin{abstract}
 % -Likelihood free parameter estimation.
 % -Reliance on summary statistics – issues with that.
@@ -246,6 +239,10 @@ We introduce viaABC (Variational Inference Assisted Approximate Bayesian Computa
 % Our solution is to perform inference in the latent space – follows manifold hypothesis, which posits
 % that high-dimensional data often lie in low dimensional manifolds within the high-dimensional
 % data. Better representation to perform causal inference on dynamical data.
+
+
+Inference drawn from mathematical modeling of biological data hinges on accurately identifying model parameters and capturing uncertainty in their estimation.
+Mechanistic models predict causal structure and dynamical models predict the evolution of a system over time. These models are often expressed as ordinary differential equations (ODEs) or partial differential equations (PDEs), which can be challenging to solve analytically. As a result, numerical methods are frequently employed to simulate the model's behavior, generating synthetic data that can be compared to experimental observations. This process is known as inverse modeling, where the goal is to infer the model parameters from observed data.
 Mechanistic inference is essential for understanding phenomena across various scientific disciplines, as it enables the mathematical modeling of dynamical systems and the extraction of their underlying parameters. Therefore, accurately inferring model parameters, denoted as $\theta$, from experimentally observed data, $y^{\text{obs}}$, is crucial. In the Bayesian framework, this involves determining the posterior distribution
 $$\pi(\theta | y^{obs}) \propto f(y^{obs} | \theta)\cdot \pi(\theta) $$
 of the parameters from the data by calculating the likelihood $f(y^{obs} | \theta)$ of such observations under the model with given parameter values. However, deriving the likelihood function theoretically is often intractable, computationally expensive, or too complex for direct optimization. Approximate Bayesian Computation (ABC) was introduced as an alternative framework for approximating posterior distributions when traditional likelihood-based methods are impractical \citep{tavare1997inferring}. This approach either employs summary statistics to represent both simulated and observed data using a distance metric to gauge their similarity in the case high-dimensional data or it directly compares the raw simulated and observed datasets. In both cases, ABC aims to identify the parameter values that minimize the discrepancy between the two. Numerous variants of the ABC algorithm have since been developed, including ABC Monte Carlo Markov Chain \citep{marjoram2003markov}, ABC Sequential Monte Carlo \citep{toni2009approximate}, and ABC Population Monte Carlo \citep{robert2008adaptivity}, each of which has demonstrated effectiveness across a wide range of scientific disciplines.
@@ -254,25 +251,25 @@ Despite their success, the accuracy and efficiency of existing Approximate Bayes
 
 To address these limitations, we introduce viaABC, a novel statistical inference framework that leverages techniques from computer vision and natural language processing to enhance approximate posterior inference in mechanistic modeling. By learning a structured representation of data through variational inference, viaABC eliminates the reliance on manually selected summary statistics and distance metrics, thereby improving both the accuracy and robustness of ABC-based inference. Based on the manifold hypothesis that high-dimensional data often reside near low-dimensional manifolds \citep{fefferman2016testing}, viaABC facilitates inference on complex, high-dimensional datasets, addressing challenges typically encountered in such analyses. 
 
-\newpage
 
 The contributions of this paper can be summarize as follows:
 \begin{enumerate}
-\item \text{Generality}: VAE can learn a dense, vector representation of data, eliminating the need for using summary statistic to represent data
+\item \textit{Generality}: VAE can learn a dense, vector representation of data, eliminating the need for using summary statistic to represent data
 \item \textit{Sample efficiency}: The proposed framework is empirically shown to require less number of simulations than previous methods
 \item \textit{Noise modeling}: Our framework is more flexible and robust towards experimental and biological noises
 \end{enumerate}
 
 Our work will primarily focus on multivariate time-series data. Our method employs self-supervised pre-training on simulated multivariate time-series data. During pre-training, the model captures temporal and cross-channel dependencies, constructing a latent distribution for each time step. This process yields an entangled representation of the time-series data. The pre-trained model then generates latent representations for simulated data, which are subsequently compared to the representation of $y^{obs}$ for parameter inference using sequential ABC.
-\section{Related Work}
 
-\subsection{ABC}
+\section*{Related Work}
+
+\para{ABC}
 This section provides a comprehensive review and development of the theoretical foundations of Approximate Bayesian Computation (ABC), with a particular focus on its applications to dynamical systems and statistical parameter inference before introducing the variational inference approach in the context of ABC. 
 
-\subsection*{ABC Rejection}
+\para{ABC Rejection}
 Approximate Bayesian Computation (ABC) rejection is a method for parameter inference when likelihoods are intractable or computationally expensive to evaluate \citep{tavare1997inferring}. The process begins by defining prior distributions for the parameters, a distance metric, and summary statistics. Common distance metrics include L1 and L2 distances, while statistics often include the mean, variance, or combinations of moments. A parameter set is then sampled from the prior distributions and passed through a predefined simulator, a mathematical model describing the system's dynamics. The resulting statistics are computed and compared to those from the observed data. If the distance between the simulated and observed statistics falls within an acceptance threshold, the parameter set is retained for the approximate posterior; otherwise, it is rejected.
 
-\subsection*{Sequential ABC}
+\para{Sequential ABC}
 Approximate Bayesian Computation (ABC) rejection sampling relies on several hyperparameters, including the rejection threshold and the choice of distance metric for comparing simulated and observed data. A small rejection threshold typically results in a low acceptance rate, leading to high computational costs, especially when the prior distribution differs significantly from the posterior \citep{toni2009approximate}. To address this, ABC Population Monte Carlo (ABC-PMC) and ABC Sequential Monte Carlo (ABC-SMC) were introduced, which the idea is to begin with a large threshold and iteratively reduce it. In each iteration, samples, referred to as particles, are drawn from the approximate posterior of the previous iteration, iteratively refining the shape of the posterior distribution and improving sampling efficiency. The key distinction between ABC-PMC and ABC-SMC lies in the choice of the perturbation kernel. ABC-SMC assumes no explicit perturbation kernel, though prior studies have seen success using a uniform distribution. In contrast, ABC-PMC utilizes a multivariate normal distribution for perturbation, allowing for smoother updates and potentially more efficient exploration of the posterior space.
 
 % \subsection{Self-supervised Learning (SSL)}
@@ -282,7 +279,7 @@ Approximate Bayesian Computation (ABC) rejection sampling relies on several hype
 % The core idea of contrastive loss is to generate two augmented versions of a given input: a positive sample that is similar to the input and a negative sample that is dissimilar. The objective is to encourage similar representations to cluster together while pushing dissimilar ones apart.\\
 % PLACEHOLDER FOR CONTRASTIVE LOSS APPROACHES IN TIME-SERIES 
 
-\subsection{Masked Modeling}
+\para{Masked Modeling}
 Self-supervised learning (SSL) has demonstrated remarkable success in natural language processing and computer vision, with its applications extending beyond text and images to modalities such as video, audio, and time series \citep{balestriero2023cookbook}. In this publication, we explore the masked modeling approach, a prominent self-supervised learning technique.
 
 The masked modeling approach learns useful representations by masking parts of the input and reconstructing them using the unmasked portions. This technique has been successful in natural language processing, as demonstrated by masked language modeling in BERT, where some tokens are randomly masked, and the model predicts the missing tokens based on the surrounding context \citep{devlin2019bert}. In computer vision, an image is divided into patches, with some randomly masked, and the model reconstructs the original image using the remaining patches \citep{he2022masked}.
@@ -291,7 +288,7 @@ There are several variations of masked modeling. One approach masks portions of 
 
 Masked modeling has been adopted into time-series domain for time-series forecasting like TiMAE and TimeMAE \citep{li2023ti}\citep{cheng2023timemae}. By reconstructing the missing time-stamps from partially masked inputs, the model gathers contextual information to predict the missing regions, enhancing the model's understanding of complex interaction relationships between different dimensions.
 
-\subsection{Varitional Autoencoder}
+\para{Varitional Autoencoder}
 %TODO: fix this 
 Variational inference (VI) has been proposed as a machine learning approach to approximate intractable probability densities, as an alternative method to Markov Chain Monte Carlo (MCMC) sampling. \citep{jordan1999introduction}\citep{Blei_2017}. There are numerous advantages to variational inference: variational inference is typically much faster especially for high-dimensional data and is much easier to scale to large data \citep{Blei_2017}.
 
@@ -312,35 +309,21 @@ Variational autoencoder consists of a probabilistic encoder $q_{\phi}(z|x)$ and 
 
 % We assume that both the prior $p_{\theta^*}(z)$ and the likelihood $p_{\theta^*}(x \mid z)$ belong to parametric families of distributions $p_{\theta}(z)$ and $p_{\theta}(x \mid z)$, respectively, and that their probability density functions are differentiable with respect to both $\theta$ and $z$. However, much of this process remains hidden: the true parameters $\theta^*$, as well as the values of the latent variables $z^{(i)}$, are unknown. \textbf{PARAPHRASE THIS AND CITE KINGMA}
 
-\section{Methodology}
-\subsection{Model Architecture}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/model_architecture.png}
-    \caption{\textbf{Our TSMVAE architecture}. During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.}
-    \label{fig:enter-label}
-\end{figure}
-We extend the transformer-based Masked Autoencoder (MAE), originally developed for computer vision, where it employs the Vision Transformer (ViT) as the backbone model for both the encoder and decoder, to the domain of multivariate time-series data \citep{dosovitskiy2020image, he2022masked}. While MAE has been widely employed for image representation learning, its direct application to time-series data presents challenges due to the temporal dependencies and multivariate structure inherent in such data. To address these challenges, we introduce the Time-Series Masked Variational Autoencoder (TSMVAE), an adaptation that integrates the principles of MAE with a variational autoencoder framework tailored for time-series modeling. The intention of this paper is not to introduce the new model architecture.
-
-Similar to all other autoencoders, our model consists of an encoder that maps the observed signal into a latent representation and a decoder that reconstructs the original signal from this latent space. However, TSMVAE diverges from the original MAE in two fundamental ways to better capture the structure of multivariate time-series data:
-
-\textbf{Temporal Patching}: Given a $D$-dimensional time-series, $\{X_t\}_{t=1}^{T}$, where $X_t \in \mathbb{R}^D$, TSMVAE partitions the sequence along the time axis, forming patches that correspond to different time intervals. Each patch is then projected into a higher-dimensional space via a linear transformation, facilitating the encoding of temporal dependencies.
-
-\textbf{Variational Latent Space Representation}: The encoded output undergoes two additional linear transformations. The first maps the encoded representations into a predefined latent dimension, structuring the latent space effectively. The second transformation introduces variational layers, which impose a probabilistic structure on the latent variables, thereby enabling the learning of meaningful latent distributions. 
-
-These modifications enable TSMVAE to effectively learn representations from multivariate time-series data time-stamp wise while leveraging the power of masked self-supervised learning. Figure 1 provides a high-level illustration of our proposed model. For further details on the model architecture, we refer the reader to prior work.
+\newpage
+\subsection*{Cosine similarity of the latent variables as an acceptance criterion}
 
 
-%
-%\subsection{Metric}
-%
-%\subsection*{Cosine Similarity}
-%
-%\subsection*{BERTScore}
-%we utilize BERTScore as our distance metric to compare similarity between latent representations of observed data and simulated data. Originally developed as an automatic evaluation tool for text generation, BERTScore assesses sentence similarity by leveraging contextual embeddings \citep{zhang2019bertscore}. While models that generate both contextual embeddings and entangled latent representations typically require a pooling operation to condense these representations into a single vector, BERTScore obviates the need for pooling by directly comparing two matrices of latent representations, employing pairwise cosine similarity of latent representations of all time-stamps.
-%
-%\textbf{Figure 2} BERTScore for Time-series
-\subsection{Pretraining}
+
+
+there is relationship between data points that can inform on model parameters. that information could be projected to latent manifolds to either lower or higher dimensions. 
+We exploit deep learning to generate latent representations of the data, which can be used as summary statistics in a Bayesian framework.
+%The latent representation is learned from simulated data, and we use it to compare with the observed data. 
+This approach allows us to bypass the need for manually selecting summary statistics, which can be challenging in high-dimensional settings. 
+we can fit models in the real space and it will work sometimes/often but we can learn crucial insights about these relationships by learning the latent representation.
+
+\blue{simulation based inference}.
+
+\para{Training:}
 Suppose we have a mathematical model or data-generating process, denoted as \( f \), which maps a \( k \)-dimensional parameter vector to a \( d \)-dimensional multivariate time series:  
 
 $$
@@ -391,6 +374,42 @@ A widely used normalization approach involves applying an affine transformation 
 In our study, we adopt mean scaling as the normalization technique, as it has demonstrated effectiveness in deep learning models frequently applied to practical time-series tasks \citep{salinas2020deepar}\citep{rabanser2020effectiveness} \citep{ansari2024chronos}. Mean scaling normalizes each dimension of the time series by dividing its values by the absolute mean, setting $m = 0$ and $s= \frac{1}{T} \sum_{t=1}^{T}|x_i|$ in the above affine transformation. 
 
 Previous studies have addressed the challenge of heterogeneous magnitudes in time-series data using mean scaling, which enables deep learning models to learn scale-invariant patterns while preserving zero values \citep{ansari2024chronos}. While this property facilitates stable model training, it introduces an additional challenge in our work. Specifically, if the priors are non-informative or poorly specified, viaABC may accept particles that generate multivariate time series with differing absolute magnitudes but similar scaled representations compared to the observational data. This could lead to misleading inferences, as viaABC compares its similarity to the scaled observational data in latent space. 
+
+
+\para{TSM VAE:}
+We adopted the transformer-based Masked Autoencoder (MAE), originally developed for computer vision, where it employs the Vision Transformer (ViT) as the backbone model for both the encoder and decoder, to the domain of multivariate time-series data \citep{dosovitskiy2020image, he2022masked}.
+While MAE has been widely employed for image representation learning, its direct application to time-series data presents challenges due to the temporal dependencies and multivariate structure inherent in such data.
+To address these challenges, we formulated the Time-Series Masked Variational Autoencoder (TSMVAE), an adaptation that integrates the principles of MAE with a variational autoencoder framework tailored for time-series modeling.
+%The intention of this paper is not to introduce the new model architecture.
+
+Our model consists of an encoder that maps the observed signal into a latent representation and a decoder that reconstructs the original signal from this latent space. However, TSMVAE diverges from the original MAE in two fundamental ways to better capture the structure of multivariate time-series data:
+
+\para{Temporal Patching}: Given a $D$-dimensional time-series, $\{X_t\}_{t=1}^{T}$, where $X_t \in \mathbb{R}^D$, TSMVAE partitions the sequence along the time axis, forming patches that correspond to different time intervals. Each patch is then projected into a higher-dimensional space via a linear transformation, facilitating the encoding of temporal dependencies.
+
+\para{Variational Latent Space Representation}: The encoded output undergoes two additional linear transformations. The first maps the encoded representations into a predefined latent dimension, structuring the latent space effectively. The second transformation introduces variational layers, which impose a probabilistic structure on the latent variables, thereby enabling the learning of meaningful latent distributions. 
+
+These modifications enable TSMVAE to effectively learn representations from multivariate time-series data time-stamp wise while leveraging the power of masked self-supervised learning. Figure 1 provides a high-level illustration of our proposed model. For further details on the model architecture, we refer the reader to prior work.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/model_architecture.png}
+    \caption{\textbf{Tokenized encoding and sequential Monte Carlo to generate posterior distribution of parameters}.
+\blue{this figure will be the full schematic of VIA-ABC}. \\    
+During pretraining, a random subset of temporal patches (e.g., 15\%) is masked out. The encoder is applied to the visible patches. The CLS token (red) and Mask tokens (gray) are introduced after the encoder, and the full set of encoded patches along with the mask tokens undergoes the reparametrization trick. This is then processed by a small decoder that reconstructs the original patches. After pretraining, the decoder is discarded, and the encoder is applied to uncorrupted multivariate time series (full sets of patches) for viaABC.}
+    \label{fig:enter-label}
+\end{figure}
+
+
+%
+%\subsection{Metric}
+%
+%\subsection*{Cosine Similarity}
+%
+%\subsection*{BERTScore}
+%we utilize BERTScore as our distance metric to compare similarity between latent representations of observed data and simulated data. Originally developed as an automatic evaluation tool for text generation, BERTScore assesses sentence similarity by leveraging contextual embeddings \citep{zhang2019bertscore}. While models that generate both contextual embeddings and entangled latent representations typically require a pooling operation to condense these representations into a single vector, BERTScore obviates the need for pooling by directly comparing two matrices of latent representations, employing pairwise cosine similarity of latent representations of all time-stamps.
+%
+%\textbf{Figure 2} BERTScore for Time-series
+
 %To address this issue, we introduce an auxiliary task linked to the CLS head token. Specifically, we incorporate a simple linear layer designed to predict the log-scaled magnitude of the absolute mean scales. This auxiliary task enables the construction of scale-variant latent representations while maintaining stable model training.
 
 \textbf{Special Token}: The TSMVAE model has a special CLS token, which will be used to output a latent vector representation of a multi-variate time-series data. This is often known as the CLS pooling. 
@@ -399,7 +418,7 @@ Previous studies have addressed the challenge of heterogeneous magnitudes in tim
 
 %[Need to study whether using contextual embeddings is better or CLS pooling is better]
 
-\subsection{viaABC}
+\subsection{VIA-ABC}
 Following the notation of \citep{marin2012approximate} and \citep{simola2021adaptive}, the resulting ABC posterior can be written as
 $$
 \pi_{\epsilon}(\theta | y_{obs}) = \int [\frac{f(y_{prop} | \theta)\pi(\theta)\mathbbm{1}_{A_{\epsilon, y_{obs}}}(y_{prop})}{\int_{A_{\epsilon, y_{obs}} \times \Theta } f(y_{prop} | \theta)\pi(\theta)dy_{prop}d\theta}]d_{y_{prop}}
@@ -522,71 +541,73 @@ A few ideas have been introduced to determine how to stop in a sequential ABC al
     \State $\epsilon_t = \text{Quantile($\{d_i^{t}\}_{i=1}^N$, $q_t$})$
 \EndFor
 \end{algorithmic}
+\label{alg:viaABC}
 \end{algorithm}
+
+\textbf{Stoping Rule}: 
+A few ideas have been introduced to determine how to stop in a sequential ABC algorithm.
+Ishida et al. \citep{ishida2015cosmoabc} proposed a stopping rule once the acceptance rate of the algorithm  falls below a certain threshold which is estimated based on the sequential ABC posterior distributions. Simola et. al \citep{simola2021adaptive} proposed using a stopping rule based on estimated quantile of the ABC posterior distributions where $q_t > 0.99$ and $ t \geq 3$. In our work, we adopt the same stopping rule proposed by Simola et al.
 
 % \subsection{Model Selection}
 % Based on ELBO?
 
-\section{Experiments}
-
-\subsection{Main Properties}
-
-\textbf{Masking ratio.} Figure shows the influence of the masking ratio. The ratio of 15\% seems to work well, which is in agreement with the behavior of BERT \citep{devlin2019bert}, whose masking ratio is 15\%. 
-
-\textbf{Decoder design.} In accordance with the original MAE paper, our TSMVAE decoder can be flexible designed, as studied in Table. Table varies the decoder depth and dimension. A sufficiently deep decoder is important for denoising.
-
-\textbf{Data augmentation.} Table studies the influence of different noise level injected used in our TSMVAE pre-training. Our TSMVAE works well using Gaussian noise.  needs to be data dependent and channel dependent.
-
-\textbf{Beta} Table studies the influence of different beta levels used in our TSMVAE pre-training. Based on our study, a beta value of 0.001 
 
 \newpage
-\section{Dataset}
 
-
-\subsection*{Deterministic Lotka-Volterra model}
-The Lotka-Volterra (LV) model describes the interaction between predators and prey \citep{lotka1925elements}\citep{volterra1928variations}. This deterministic model, which represents the populations of prey $x$ and predators $y$, is expressed as a system of nonlinear differential equations:
+%\section*{Results}
+\subsection*{Parameter inference from learned representations of noisy dynamical input
+}
+To validate our approach, we used the Lotka-Volterra model~\citep{lotka1925elements}\citep{volterra1928variations}, a classic model in ecology, which deterministically describes the population dynamics and  interactions between a prey $(x)$ and predator $(y)$ species.
+This system is expressed as a pair of nonlinear differential equations,
 \begin{equation}
-\begin{aligned}
-\frac{dx}{dt} &= a x - cxy \\
-\frac{dy}{dt} &= b xy - dy
-\end{aligned}
+\frac{dx}{dt} = a x - cxy, \qquad
+\frac{dy}{dt} = b xy - dy,
 \end{equation}
-where $a$ denotes the intrinsic growth rate of the prey, $d$ is the mortality rate of the predators, $c$ represents the predation rate coefficient, and $b$ characterizes the efficiency with which consumed prey are converted into predator offspring. In this study, we set \(c = d = 1\) and aim to infer the parameters \(\theta = (a, b)\) from prior distributions where \(a, b \sim \mathrm{Uniform}(-10, 10)\). Following the methodology of Toni etal.\citep{toni2009approximate}, we solve the system of ordinary differential equations with the initial condition \((x(0), y(0)) = (1, 0.5)\) using \(\theta = (1, 1)\). The state variables \((x, y)\) are sampled at eight distinct time points between \(t = 0\) and \(t = 15\). Subsequently, normally distributed noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) is added to each data point, thereby forming the observed dataset $s^{\mathrm{obs}} = \{x_1, y_1, \dots, x_8, y_8\}$
+where $a$ and  $b$ denote rates of population growth of the prey and their per capita loss due to predation.
+Parameters $c$ and $d$ represent the efficiency with which consumed prey are converted into predator offspring and loss of the predators, respectively.
+The Lotka-Volterra model is a well-studied system, and its parameters have been estimated using various methods, including ABC~\citep{toni2009approximate, prangle2017adapting}, ABC with distributional Random Forest (ABC-DRF)~\citep{dinh2024approximate}, and ABC with Deep Learning (ABC-DL)~\citep{Baragatti2024aa}.
+In this study, we fixed parameters $c=d=1$  and aim to infer \( \theta = (a, b)\), from the prior probabilities  \( a, b \sim \text{Uniform}(0, 10)\), following the approach described in Toni~\citep{toni2009approximate} and Dinh~\citep{dinh2024approximate} \etal.
+%We also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!
 
-To evaluate viaABC's performance, we compare the final posterior distributions with ABC-DRF, ABC-SMC, and ABC-SMC-DRF. Algorithm drf is blah blah. Talk about table sizes, different kernel in each algorithm. We impose the series of tolerance thresholds $\epsilon_1 = 0.3, \epsilon_2 = 0.2, \epsilon_1 = 0.1, \epsilon_4 = 0.04$. $\epsilon_4 = 0.04$ is the cosine dissimilarity between the ground truth and the observed data. To produce 1,000 accepted particles, viaABC requires $N = 34,474$ simulations.
+We generated $N=50000$ training simulations of prey, predator dynamics~(shown as lines in~\textbf{Figure~\ref{fig:lv}A}), by sampling $\theta$ from the prior using the latin hypercube sampler.  
+Each simulation produces a bivariate time series.
+We selected eight time points between $t=0$ and $15$ to represent our training data $u^{\mathrm{train}} = \{x^n_1, y^n_1, \dots, x^n_8, y^n_8\}$, where $n$ is an integer $\in [0, N]$. %, similar to Toni~\citep{toni2009approximate} \etal. 
+We trained TSM-VAE on $s^{\mathrm{train}}$ such that \blue{$\sim12$\% }of each time series is masked from the encoder.
+The comparison between reconstructions of masked and unmasked training data shows that TSM-VAE  effectively imputes missing observations using the patterns within the seen data~(\textbf{Figure~\ref{fig:lv}B}). %  four randomly picked. 
+This means that the latent space is well-regularized and the encoder has learned the contextual information within the input.
 
-\subsection*{Stochastic Susceptible-Infected-Recovered model}
-The stochastic Susceptible-Infected-Recovered (SIR) model is a fundamental framework in epidemiology for capturing the spread of infectious diseases within a population \cite{dd}. Unlike its deterministic counterpart, which employs ordinary differential equations, the stochastic SIR model incorporates intrinsic randomness in disease transmission and recovery, making it particularly suitable for modeling outbreaks in finite populations. The system tracks the evolution of three state variables: $S, I,$ and $R$, representing the number of susceptible, infected, and recovered individuals, respectively. The model dynamics are governed by the following reaction scheme:  
-\begin{align*}
-S + I &\xrightarrow{\beta} 2I\\
- I &\xrightarrow{\gamma} R
-\end{align*}
-where $\beta$ denotes the transmission rate per susceptible-infected pair, and $\gamma$ represents the recovery rate of infected individuals. To capture the stochastic nature of infection and recovery events, we employ the Gillespie algorithm \citep{gillespie1977exact}, which simulates the discrete event-driven evolution of the system.\\
-In this study, we set $\beta = 2 $ and $ \gamma = 0.5 $ and simulate the epidemic dynamics over a time span of $T = 15$ days, starting from an initial condition of $ (S(0), I(0), R(0)) = (290, 10, 0) $ in a closed population of size $N = 300$. The stochastic trajectories are recorded at thirty-five distinct time points, and to account for observational uncertainty, normally distributed noise $ \epsilon_t \sim \mathcal{N}(0, 1^2) $ is added to each recorded data point. The resulting dataset, denoted as
-$s^{\mathrm{obs}} = \{ S_1, I_1, R_1, \dots, S_{35}, I_{35}, R_{35} \} $  
-serves as the empirical basis for inference in this study. Since events in the Gillespie algorithm occur at irregular time intervals, we interpolate the simulated trajectories to align their time indices with those of the observed data, ensuring comparability in the inference process.
+We then synthesized a test dataset (see methods for details) by evaluating $x, y$ at the same eight time points as $s^{\mathrm{train}}$ by setting \( \theta = (1, 1)\).
+We added Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to this data to represent stochastic and experimental variation typically associated with biological samples.
+This forms our noisy dynamical input $u^{\mathrm{obs}} = \{x^o_1, y^o_1, \dots, x^o_8, y^o_8\}$~(shown as dots in~\textbf{Figure~\ref{fig:lv}A}), which we refer to as observed data for consistency with previous studies.
+In~\textbf{Figure~\ref{fig:lv}C}, we show the reconstruction of the denoised $u^{\mathrm{obs}}$~(original data as dots, reconstructed as lines).
 
-% \subsection*{Deterministic Marginal Zone B Cell Dynamics}
-% PLACEHOLDER \citep{verheijen2020fate}
-
-\section{Results}
-
-
-\subsection{Deterministic Lotka-Volterra model}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figures/LV_system.png}
-    \caption{Reconstruction of observational data, the ground truth and the observational data of the Lotka-Volterra system.}
-    \label{fig:enter-label}
-\end{figure}
+The observed data is then encoded using the trained TSM-VAE to its latent variable $z^{\mathrm{obs}}$, which is used to generate posterior of $\theta$ via ABC-SMC, following the~\textbf{Algorithm~\ref{alg:viaABC}}.
+\blue{What are the dimensions of Z?.
+To note, data is encoded to a higher latent dimension, which we believe helps in recording global patterns and local contextual dependencies.}
+Specifically, we sample $\theta$ from the bivariate uniform prior, generate simulated data $u^{\mathrm{sim}} = \{x^s_1, y^s_1, \dots, x^s_8, y^s_8\}$ and encode it to the latent variable $z^{\mathrm{sim}}$.
+We accept 1000 $\theta$ particles based on the cosine similarity of $z^{\mathrm{sim}}$ to $z^{\mathrm{obs}}$.
+This procedure is repeated till the stopping rule described in the~\textbf{Algorithm~\ref{alg:viaABC}} is satisfied.
+We visualized the latent representation of all the simulated data [\blue{num iterations, num samples}] and observed data by projecting them to two-dimensions using the UMAP algorithm~(\textbf{Figure~\ref{fig:lv}D}).
+We observed that the dynamics generated from similar parameter values were closely embedded, suggesting that the latent variables that we used to perform ABC-SMC contain an interpretable, ordered representation of the not really! model parameters. 
+We also found that the predictions generated from accepted particles (highlighted in yellow) are clustered within the regions with high density of parameter values close to the ground truth \ie $a,b =1$.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figures/LV_system_density.png}
-\caption{Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}
-    \label{fig:enter-label}
+    \includegraphics[width=1\linewidth]{figures/figure2.jpeg}
+\caption{\textbf{Learning and inferring predator-prey dynamics using VIA-ABC}.
+Visualization of the latent representation of simulated and observed data and the final posterior
+Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}
+    \label{fig:lv}
 \end{figure}
+
+- predictions (including reconstruction?) and posterior surface.
+high dense regions around the ground truth -- means its working. 
+
+
+- Parameter acceptance 
+
+red is gt
+
 
 \begin{table}[htbp]
 \centering
@@ -604,7 +625,33 @@ Var(b) & \textbf{0.0299} & 0.3593 & 0.1049 & 0.0313 \\
 \label{tab:lotka_volterra_results} % Add a label for referencing
 \end{table}
 
-\subsection{Stochastic Susceptible-Infected-Recovered model}
+
+\subsection*{Characterizing the effects of hyperparameters on VIA-ABC's performance}
+
+\textbf{Masking ratio.} Figure shows the influence of the masking ratio. The ratio of 15\% seems to work well, which is in agreement with the behavior of BERT \citep{devlin2019bert}, whose masking ratio is 15\%. 
+
+\textbf{Decoder design.} In accordance with the original MAE paper, our TSMVAE decoder can be flexible designed, as studied in Table. Table varies the decoder depth and dimension. A sufficiently deep decoder is important for denoising.
+
+\textbf{Data augmentation.} Table studies the influence of different noise level injected used in our TSMVAE pre-training. Our TSMVAE works well using Gaussian noise.  needs to be data dependent and channel dependent.
+
+\textbf{Beta} Table studies the influence of different beta levels used in our TSMVAE pre-training. Based on our study, a beta value of 0.001 
+
+
+
+\subsection*{Stochastic Susceptible-Infected-Recovered model}
+The stochastic Susceptible-Infected-Recovered (SIR) model is a fundamental framework in epidemiology for capturing the spread of infectious diseases within a population \cite{dd}. Unlike its deterministic counterpart, which employs ordinary differential equations, the stochastic SIR model incorporates intrinsic randomness in disease transmission and recovery, making it particularly suitable for modeling outbreaks in finite populations. The system tracks the evolution of three state variables: $S, I,$ and $R$, representing the number of susceptible, infected, and recovered individuals, respectively. The model dynamics are governed by the following reaction scheme:  
+\begin{align*}
+S + I &\xrightarrow{\beta} 2I\\
+ I &\xrightarrow{\gamma} R
+\end{align*}
+where $\beta$ denotes the transmission rate per susceptible-infected pair, and $\gamma$ represents the recovery rate of infected individuals. To capture the stochastic nature of infection and recovery events, we employ the Gillespie algorithm \citep{gillespie1977exact}, which simulates the discrete event-driven evolution of the system.\\
+In this study, we set $\beta = 2 $ and $ \gamma = 0.5 $ and simulate the epidemic dynamics over a time span of $T = 15$ days, starting from an initial condition of $ (S(0), I(0), R(0)) = (290, 10, 0) $ in a closed population of size $N = 300$. The stochastic trajectories are recorded at thirty-five distinct time points, and to account for observational uncertainty, normally distributed noise $ \epsilon_t \sim \mathcal{N}(0, 1^2) $ is added to each recorded data point. The resulting dataset, denoted as
+$s^{\mathrm{obs}} = \{ S_1, I_1, R_1, \dots, S_{35}, I_{35}, R_{35} \} $  
+serves as the empirical basis for inference in this study. Since events in the Gillespie algorithm occur at irregular time intervals, we interpolate the simulated trajectories to align their time indices with those of the observed data, ensuring comparability in the inference process.
+
+% \subsection*{Deterministic Marginal Zone B Cell Dynamics}
+% PLACEHOLDER \citep{verheijen2020fate}
+
 
 \textbf{Figure Something}: a) Predicted trajectories of stochastic sir and the observed data points. (b) Final approximate posterior distribution of parameters inferred by the ABC-SMC sampler.
 
@@ -614,8 +661,35 @@ Var(b) & \textbf{0.0299} & 0.3593 & 0.1049 & 0.0313 \\
 
 % \textbf{Figure Something}: Comparison between 
 
-\section{Conclusion}
-\section{Discussion}
+
+\section*{Discussion}
+
+In this study, we introduced viaABC, a novel approach for parameter inference in mechanistic models of biological systems. By leveraging the power of variational autoencoders (VAEs) and the principles of approximate Bayesian computation (ABC), viaABC offers a flexible and efficient framework for inferring model parameters from noisy multivariate time series data.
+We demonstrated the effectiveness of viaABC on synthetic datasets generated from the Lotka-Volterra model and the stochastic SIR model, showcasing its ability to accurately recover model parameters and capture the underlying dynamics of the systems. The results indicate that viaABC outperforms traditional ABC methods, such as ABC-DRF and ABC-SMC, in terms of parameter estimation accuracy and computational efficiency.
+
+The integration of VAEs allows viaABC to learn meaningful latent representations of the data, enabling it to handle high-dimensional and noisy observations effectively. By encoding the data into a lower-dimensional latent space, viaABC can focus on the essential features of the data while discarding irrelevant noise, leading to improved parameter inference.
+The use of a VAE also facilitates the incorporation of prior knowledge about the model parameters, allowing for more informed inference. The ability to leverage pre-trained VAEs further enhances the efficiency of viaABC, as it can initialize the inference process with informative latent representations.
+
+The results of our experiments demonstrate the robustness of viaABC across different datasets and parameter settings. The method's performance is consistent, even in the presence of noise and variability in the data. This highlights its potential for real-world applications in biological systems, where data can be noisy and complex.
+The proposed method has several advantages over traditional ABC methods. Firstly, viaABC is computationally efficient, as it can leverage the power of VAEs to learn representations of the data in a lower-dimensional space. This reduces the computational burden associated with simulating large datasets and allows for faster parameter inference. Secondly, viaABC is flexible and adaptable, making it suitable for a wide range of mechanistic models and biological systems. The method can be easily extended to incorporate additional features or modifications, allowing researchers to tailor it to their specific needs.
+
+Finally, viaABC provides a principled framework for parameter inference, combining the strengths of VAEs and ABC. By integrating these two powerful approaches, viaABC offers a comprehensive solution for parameter inference in mechanistic models of biological systems.
+
+
+\section*{Methods}
+\vspace{3mm}
+
+\para{Data generation for the Lotka-Volterra model}
+
+We solved the Lotka-Volterra system and evaluated prey and predator populations  $x(t), y(t)$ at eight distinct time points between \(t = 0\) and \(t = 15\) using parameters $a=b=c=d=1$  and the initial conditions \((x(0), y(0)) = (1, 0.5)\), similar to Toni and Khanh et al~\red{CITE}.
+Of note the initial conditions of $(1, 0.5)$ are used for simplicity and do not have any biological meaning.
+We further added the Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to  $x(t), y(t)$evaluated at , by setting \(\theta = (1, 1)\).
+This forms our noisy input data $s^{\mathrm{obs}} = \{x_1, y_1, \dots, x_8, y_8\}$ that we use to evaluate VIA-ABC's performance~(\textbf{Figure \ref{fig:lotka-volterra}}).
+However, we also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!
+
+We generated a dataset of 50,000 samples from the Lotka-Volterra model, with each sample representing a multivariate time series of length 8.
+The parameters \(a\) and \(b\) were sampled uniformly from the range \([0, 10]\).
+The generated data was then corrupted with Gaussian noise to simulate real-world observations.
 
 %
 %\section{Introduction}
