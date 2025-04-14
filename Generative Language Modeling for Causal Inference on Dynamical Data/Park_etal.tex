@@ -10,7 +10,7 @@
 \usepackage{bbm}
 
 % this gives reasonable margins for NIH forms after the 104% print
-\geometry{letterpaper}  
+\geometry{letterpaper, margin=1in} % 1 inch margins
 \usepackage[xetex]{graphicx} % allows us to manipulate graphics.
 % Replace option [] with pdftex if you don't use Xe(La)TeX
 \usepackage{color}
@@ -23,7 +23,6 @@
 % line spacing: \doublespacing, \onehalfspacing, \singlespacing
 \usepackage{setspace}
 \singlespacing
-\setstretch{0.95} % shrink line spacing a little bit
 % allows text flowing around figs
 % use \begin{wrapfigure}{x}{width} where x = r(ight) or l(eft)
 \usepackage{wrapfig}
@@ -120,14 +119,8 @@ allbordercolors = {white}
 \newcommand{\tighten}{\vspace{-0.35cm}}
 \newcommand{\tightenabit}{\vspace{-0.15cm}}
 
-\newcommand{\khishort}{Ki67$^\text{high}$~}
-\newcommand{\kloshort}{Ki67$^\text{low}$~}
 \newcommand{\ie}{\textit{i.e.}~}
-\newcommand{\bpos}{BrdU$^\text{pos}$~}
-\newcommand{\bneg}{BrdU$^\text{neg}$~}
-\newcommand{\bposshort}{BrdU$^\text{pos}$}
-\newcommand{\bnegshort}{BrdU$^\text{neg}$}
-
+\newcommand{\etal}{\textit{et al}}
 
 % how to highlight my name in reference lists - choose one of the following
 \newcommand{\myemphasis}[1]{\textbf{\underline{#1}}} 
@@ -200,7 +193,7 @@ allbordercolors = {white}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Generative Language Modeling for Causal Inference\\ on Dynamical Data}
+\title{Generative Language Modeling for Bayesian Inference on Dynamical Data}
 \author[1]{Jun Won Park}
 \author[1]{Sanket Rane}
 \affil[1]{Irving Institute for Cancer Dynamics, Columbia University, New York, NY, USA}
@@ -246,6 +239,10 @@ We introduce viaABC (Variational Inference Assisted Approximate Bayesian Computa
 % Our solution is to perform inference in the latent space – follows manifold hypothesis, which posits
 % that high-dimensional data often lie in low dimensional manifolds within the high-dimensional
 % data. Better representation to perform causal inference on dynamical data.
+
+
+Inference drawn from mathematical modeling of biological data hinges on accurately identifying model parameters and capturing uncertainty in their estimation.
+Mechanistic models predict causal structure and dynamical models predict the evolution of a system over time. These models are often expressed as ordinary differential equations (ODEs) or partial differential equations (PDEs), which can be challenging to solve analytically. As a result, numerical methods are frequently employed to simulate the model's behavior, generating synthetic data that can be compared to experimental observations. This process is known as inverse modeling, where the goal is to infer the model parameters from observed data.
 Mechanistic inference is essential for understanding phenomena across various scientific disciplines, as it enables the mathematical modeling of dynamical systems and the extraction of their underlying parameters. Therefore, accurately inferring model parameters, denoted as $\theta$, from experimentally observed data, $y^{\text{obs}}$, is crucial. In the Bayesian framework, this involves determining the posterior distribution
 $$\pi(\theta | y^{obs}) \propto f(y^{obs} | \theta)\cdot \pi(\theta) $$
 of the parameters from the data by calculating the likelihood $f(y^{obs} | \theta)$ of such observations under the model with given parameter values. However, deriving the likelihood function theoretically is often intractable, computationally expensive, or too complex for direct optimization. Approximate Bayesian Computation (ABC) was introduced as an alternative framework for approximating posterior distributions when traditional likelihood-based methods are impractical \citep{tavare1997inferring}. This approach either employs summary statistics to represent both simulated and observed data using a distance metric to gauge their similarity in the case high-dimensional data or it directly compares the raw simulated and observed datasets. In both cases, ABC aims to identify the parameter values that minimize the discrepancy between the two. Numerous variants of the ABC algorithm have since been developed, including ABC Monte Carlo Markov Chain \citep{marjoram2003markov}, ABC Sequential Monte Carlo \citep{toni2009approximate}, and ABC Population Monte Carlo \citep{robert2008adaptivity}, each of which has demonstrated effectiveness across a wide range of scientific disciplines.
@@ -313,18 +310,16 @@ Variational autoencoder consists of a probabilistic encoder $q_{\phi}(z|x)$ and 
 
 % We assume that both the prior $p_{\theta^*}(z)$ and the likelihood $p_{\theta^*}(x \mid z)$ belong to parametric families of distributions $p_{\theta}(z)$ and $p_{\theta}(x \mid z)$, respectively, and that their probability density functions are differentiable with respect to both $\theta$ and $z$. However, much of this process remains hidden: the true parameters $\theta^*$, as well as the values of the latent variables $z^{(i)}$, are unknown. \textbf{PARAPHRASE THIS AND CITE KINGMA}
 
-\section*{Methods}
-
-%\subsection*{Inferring parameters from learned representations of the simulated data}\
-\vspace{3mm}
-\para{Latent variables as summary statistics in Sequential ABC}
+\newpage
+\subsection*{Cosine similarity of the latent variables as an acceptance criterion}
 
 
-Inference drawn from mathematical modeling of biological data hinges on accurately identifying model parameters and capturing uncertainty in their estimation.
-Mechanistic models predict causal structure and dynamical models predict
 
-there is relationship between data points that can inform on model parameters. that information could lie in latent manifolds. 
 
+there is relationship between data points that can inform on model parameters. that information could be projected to latent manifolds to either lower or higher dimensions. 
+We exploit deep learning to generate latent representations of the data, which can be used as summary statistics in a Bayesian framework.
+%The latent representation is learned from simulated data, and we use it to compare with the observed data. 
+This approach allows us to bypass the need for manually selecting summary statistics, which can be challenging in high-dimensional settings. 
 we can fit models in the real space and it will work sometimes/often but we can learn crucial insights about these relationships by learning the latent representation.
 
 \blue{simulation based inference}.
@@ -383,10 +378,10 @@ Previous studies have addressed the challenge of heterogeneous magnitudes in tim
 
 
 \para{TSM VAE:}
-We extend the transformer-based Masked Autoencoder (MAE), originally developed for computer vision, where it employs the Vision Transformer (ViT) as the backbone model for both the encoder and decoder, to the domain of multivariate time-series data \citep{dosovitskiy2020image, he2022masked}.
+We adopted the transformer-based Masked Autoencoder (MAE), originally developed for computer vision, where it employs the Vision Transformer (ViT) as the backbone model for both the encoder and decoder, to the domain of multivariate time-series data \citep{dosovitskiy2020image, he2022masked}.
 While MAE has been widely employed for image representation learning, its direct application to time-series data presents challenges due to the temporal dependencies and multivariate structure inherent in such data.
-To address these challenges, we introduce the Time-Series Masked Variational Autoencoder (TSMVAE), an adaptation that integrates the principles of MAE with a variational autoencoder framework tailored for time-series modeling.
-The intention of this paper is not to introduce the new model architecture.
+To address these challenges, we formulated the Time-Series Masked Variational Autoencoder (TSMVAE), an adaptation that integrates the principles of MAE with a variational autoencoder framework tailored for time-series modeling.
+%The intention of this paper is not to introduce the new model architecture.
 
 Our model consists of an encoder that maps the observed signal into a latent representation and a decoder that reconstructs the original signal from this latent space. However, TSMVAE diverges from the original MAE in two fundamental ways to better capture the structure of multivariate time-series data:
 
@@ -538,10 +533,12 @@ viaABC follows the Adaptive Approximate Bayesian Sequential Monte Carlo (aABC-SM
     \State $\epsilon_t = \text{Quantile($\{d_i^{t}\}_{i=1}^N$, $q_t$})$
 \EndFor
 \end{algorithmic}
+\label{alg:viaABC}
 \end{algorithm}
 
 \textbf{Stoping Rule}: 
-A few ideas have been introduced to determine how to stop in a sequential ABC algorithm. Ishida et al. \citep{ishida2015cosmoabc} proposed a stopping rule once the acceptance rate of the algorithm  falls below a certain threshold which is estimated based on the sequential ABC posterior distributions. Simola et. al \citep{simola2021adaptive} proposed using a stopping rule based on estimated quantile of the ABC posterior distributions where $q_t > 0.99$ and $ t \geq 3$. In our work, we adopt the same stopping rule proposed by Simola et al.
+A few ideas have been introduced to determine how to stop in a sequential ABC algorithm.
+Ishida et al. \citep{ishida2015cosmoabc} proposed a stopping rule once the acceptance rate of the algorithm  falls below a certain threshold which is estimated based on the sequential ABC posterior distributions. Simola et. al \citep{simola2021adaptive} proposed using a stopping rule based on estimated quantile of the ABC posterior distributions where $q_t > 0.99$ and $ t \geq 3$. In our work, we adopt the same stopping rule proposed by Simola et al.
 
 % \subsection{Model Selection}
 % Based on ELBO?
@@ -549,44 +546,51 @@ A few ideas have been introduced to determine how to stop in a sequential ABC al
 
 \newpage
 
-\section*{Results}
-\subsection*{VIA-ABC infers parameters from learned representations of the noisy dynamical input}
-
-
-We validate our approach using the Lotka-Volterra model~\citep{lotka1925elements}\citep{volterra1928variations}, which is a deterministic model of interaction between the populations of prey $x$ and predators $y$, expressed as a system of nonlinear differential equations:
-
+%\section*{Results}
+\subsection*{Parameter inference from learned representations of noisy dynamical input
+}
+To validate our approach, we used the Lotka-Volterra model~\citep{lotka1925elements}\citep{volterra1928variations}, a classic model in ecology, which deterministically describes the population dynamics and  interactions between a prey $(x)$ and predator $(y)$ species.
+This system is expressed as a pair of nonlinear differential equations,
 \begin{equation}
 \frac{dx}{dt} = a x - cxy, \qquad
-\frac{dy}{dt} = b xy - dy.
+\frac{dy}{dt} = b xy - dy,
 \end{equation}
-Here $a$ and  $b$ denote rates of population growth of the prey and their per capita loss due to predation. Similarly, parameters $c$ and $d$ represent the efficiency with which consumed prey are converted into predator offspring and loss of the predators.
-Various studies have previously used the Lotka-Volterra equations as a model system to benchmark the parameter inference approach~\red{CITE}\citep{toni2009approximate}.
-These studies, fix the parameters $c=d=1$  and aim to infer \( \theta = (a, b)\) from prior distributions guided by either the density of the data given $\theta$ or a distance between weighted simulated and observed data.    %\(a, b \sim \mathrm{Uniform}(0, 10)\).
-\blue{To methods likely
-We followed the similar strategy and solved the Lotka-Volterra system using initial conditions \((x(0), y(0)) = (1, 0.5)\), which represent scaled population sizes.
-We generated a test dataset by adding the Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to  $x, y$ evaluated at eight distinct time points between \(t = 0\) and \(t = 15\), by setting \(\theta = (1, 1)\), similar to Toni and Khanh et al~\red{CITE}.
-This forms our noisy input data $s^{\mathrm{obs}} = \{x_1, y_1, \dots, x_8, y_8\}$ that we use to evaluate VIA-ABC's performance~(\textbf{Figure \ref{fig:lotka-volterra}}).
-However, we also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!}
+where $a$ and  $b$ denote rates of population growth of the prey and their per capita loss due to predation.
+Parameters $c$ and $d$ represent the efficiency with which consumed prey are converted into predator offspring and loss of the predators, respectively.
+The Lotka-Volterra model is a well-studied system, and its parameters have been estimated using various methods, including ABC~\citep{toni2009approximate, prangle2017adapting}, ABC with distributional Random Forest (ABC-DRF)~\citep{dinh2024approximate}, and ABC with Deep Learning (ABC-DL)~\citep{Baragatti2024aa}.
+In this study, we fixed parameters $c=d=1$  and aim to infer \( \theta = (a, b)\), from the prior probabilities  \( a, b \sim \text{Uniform}(0, 10)\), following the approach described in Toni~\citep{toni2009approximate} and Dinh~\citep{dinh2024approximate} \etal.
+%We also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!
 
-%
-%\begin{figure}
-%    \centering
-%    \includegraphics[width=1\linewidth]{figures/figure2.pdf}
-%\caption{\textbf{Learning and inferring predator-prey dynamics using VIA-ABC}.
-%Visualization of the latent representation of simulated and observed data and the final posterior
-%Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}
-%    \label{fig:lotka-volterra}
-%\end{figure}
+We generated $N=50000$ training simulations of prey, predator dynamics~(shown as lines in~\textbf{Figure~\ref{fig:lv}A}), by sampling $\theta$ from the prior using the latin hypercube sampler.  
+Each simulation produces a bivariate time series.
+We selected eight time points between $t=0$ and $15$ to represent our training data $u^{\mathrm{train}} = \{x^n_1, y^n_1, \dots, x^n_8, y^n_8\}$, where $n$ is an integer $\in [0, N]$. %, similar to Toni~\citep{toni2009approximate} \etal. 
+We trained TSM-VAE on $s^{\mathrm{train}}$ such that \blue{$\sim12$\% }of each time series is masked from the encoder.
+The comparison between reconstructions of masked and unmasked training data shows that TSM-VAE  effectively imputes missing observations using the patterns within the seen data~(\textbf{Figure~\ref{fig:lv}B}). %  four randomly picked. 
+This means that the latent space is well-regularized and the encoder has learned the contextual information within the input.
 
-- Generated simulations (details?). Perhaps all simulations or at least 1000. Overlayed with observed data.
-50000 (10\% shown) 
+We then synthesized a test dataset (see methods for details) by evaluating $x, y$ at the same eight time points as $s^{\mathrm{train}}$ by setting \( \theta = (1, 1)\).
+We added Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to this data to represent stochastic and experimental variation typically associated with biological samples.
+This forms our noisy dynamical input $u^{\mathrm{obs}} = \{x^o_1, y^o_1, \dots, x^o_8, y^o_8\}$~(shown as dots in~\textbf{Figure~\ref{fig:lv}A}), which we refer to as observed data for consistency with previous studies.
+In~\textbf{Figure~\ref{fig:lv}C}, we show the reconstruction of the denoised $u^{\mathrm{obs}}$~(original data as dots, reconstructed as lines).
 
+The observed data is then encoded using the trained TSM-VAE to its latent variable $z^{\mathrm{obs}}$, which is used to generate posterior of $\theta$ via ABC-SMC, following the~\textbf{Algorithm~\ref{alg:viaABC}}.
+\blue{What are the dimensions of Z?.
+To note, data is encoded to a higher latent dimension, which we believe helps in recording global patterns and local contextual dependencies.}
+Specifically, we sample $\theta$ from the bivariate uniform prior, generate simulated data $u^{\mathrm{sim}} = \{x^s_1, y^s_1, \dots, x^s_8, y^s_8\}$ and encode it to the latent variable $z^{\mathrm{sim}}$.
+We accept 1000 $\theta$ particles based on the cosine similarity of $z^{\mathrm{sim}}$ to $z^{\mathrm{obs}}$.
+This procedure is repeated till the stopping rule described in the~\textbf{Algorithm~\ref{alg:viaABC}} is satisfied.
+We visualized the latent representation of all the simulated data [\blue{num iterations, num samples}] and observed data by projecting them to two-dimensions using the UMAP algorithm~(\textbf{Figure~\ref{fig:lv}D}).
+We observed that the dynamics generated from similar parameter values were closely embedded, suggesting that the latent variables that we used to perform ABC-SMC contain an interpretable, ordered representation of the not really! model parameters. 
+We also found that the predictions generated from accepted particles (highlighted in yellow) are clustered within the regions with high density of parameter values close to the ground truth \ie $a,b =1$.
 
-- Masking somewhat works perhaps 4X4 comparison between unmasked and masked is enough.
-dots are simulated data Unmasked shows VAE is working and masked shows that model understands contextual information -- ie deduces/imputes missing data from  seen data.
-
-- reconstruction is the denoised observed data.
-The latent representation of the simulated data and predictions generated from accepted particles. Interpretable ordered representation of the parameters. Dynamics generated from similar parameters are closely embedded.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figures/figure2.jpeg}
+\caption{\textbf{Learning and inferring predator-prey dynamics using VIA-ABC}.
+Visualization of the latent representation of simulated and observed data and the final posterior
+Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}
+    \label{fig:lv}
+\end{figure}
 
 - predictions (including reconstruction?) and posterior surface.
 high dense regions around the ground truth -- means its working. 
@@ -614,9 +618,7 @@ Var(b) & \textbf{0.0299} & 0.3593 & 0.1049 & 0.0313 \\
 \end{table}
 
 
-\section{Experiments}
-
-\subsection{Main Properties}
+\subsection*{Characterizing the effects of hyperparameters on VIA-ABC's performance}
 
 \textbf{Masking ratio.} Figure shows the influence of the masking ratio. The ratio of 15\% seems to work well, which is in agreement with the behavior of BERT \citep{devlin2019bert}, whose masking ratio is 15\%. 
 
@@ -651,11 +653,35 @@ serves as the empirical basis for inference in this study. Since events in the G
 
 % \textbf{Figure Something}: Comparison between 
 
-\section{Conclusion}
-\section{Discussion}
 
-To evaluate viaABC's performance, we compare the final posterior distributions with ABC-DRF, ABC-SMC, and ABC-SMC-DRF. Algorithm drf is blah blah. Talk about table sizes, different kernel in each algorithm. 
-We impose the series of tolerance thresholds $\epsilon_1 = 0.3, \epsilon_2 = 0.2, \epsilon_1 = 0.1, \epsilon_4 = 0.04$. $\epsilon_4 = 0.04$ is the cosine dissimilarity between the ground truth and the observed data. To produce 1,000 accepted particles, viaABC requires $N = 34,474$ simulations.
+\section*{Discussion}
+
+In this study, we introduced viaABC, a novel approach for parameter inference in mechanistic models of biological systems. By leveraging the power of variational autoencoders (VAEs) and the principles of approximate Bayesian computation (ABC), viaABC offers a flexible and efficient framework for inferring model parameters from noisy multivariate time series data.
+We demonstrated the effectiveness of viaABC on synthetic datasets generated from the Lotka-Volterra model and the stochastic SIR model, showcasing its ability to accurately recover model parameters and capture the underlying dynamics of the systems. The results indicate that viaABC outperforms traditional ABC methods, such as ABC-DRF and ABC-SMC, in terms of parameter estimation accuracy and computational efficiency.
+
+The integration of VAEs allows viaABC to learn meaningful latent representations of the data, enabling it to handle high-dimensional and noisy observations effectively. By encoding the data into a lower-dimensional latent space, viaABC can focus on the essential features of the data while discarding irrelevant noise, leading to improved parameter inference.
+The use of a VAE also facilitates the incorporation of prior knowledge about the model parameters, allowing for more informed inference. The ability to leverage pre-trained VAEs further enhances the efficiency of viaABC, as it can initialize the inference process with informative latent representations.
+
+The results of our experiments demonstrate the robustness of viaABC across different datasets and parameter settings. The method's performance is consistent, even in the presence of noise and variability in the data. This highlights its potential for real-world applications in biological systems, where data can be noisy and complex.
+The proposed method has several advantages over traditional ABC methods. Firstly, viaABC is computationally efficient, as it can leverage the power of VAEs to learn representations of the data in a lower-dimensional space. This reduces the computational burden associated with simulating large datasets and allows for faster parameter inference. Secondly, viaABC is flexible and adaptable, making it suitable for a wide range of mechanistic models and biological systems. The method can be easily extended to incorporate additional features or modifications, allowing researchers to tailor it to their specific needs.
+
+Finally, viaABC provides a principled framework for parameter inference, combining the strengths of VAEs and ABC. By integrating these two powerful approaches, viaABC offers a comprehensive solution for parameter inference in mechanistic models of biological systems.
+
+
+\section*{Methods}
+\vspace{3mm}
+
+\para{Data generation for the Lotka-Volterra model}
+
+We solved the Lotka-Volterra system and evaluated prey and predator populations  $x(t), y(t)$ at eight distinct time points between \(t = 0\) and \(t = 15\) using parameters $a=b=c=d=1$  and the initial conditions \((x(0), y(0)) = (1, 0.5)\), similar to Toni and Khanh et al~\red{CITE}.
+Of note the initial conditions of $(1, 0.5)$ are used for simplicity and do not have any biological meaning.
+We further added the Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to  $x(t), y(t)$evaluated at , by setting \(\theta = (1, 1)\).
+This forms our noisy input data $s^{\mathrm{obs}} = \{x_1, y_1, \dots, x_8, y_8\}$ that we use to evaluate VIA-ABC's performance~(\textbf{Figure \ref{fig:lotka-volterra}}).
+However, we also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!
+
+We generated a dataset of 50,000 samples from the Lotka-Volterra model, with each sample representing a multivariate time series of length 8.
+The parameters \(a\) and \(b\) were sampled uniformly from the range \([0, 10]\).
+The generated data was then corrupted with Gaussian noise to simulate real-world observations.
 
 %
 %\section{Introduction}
