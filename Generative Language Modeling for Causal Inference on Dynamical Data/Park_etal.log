@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  14 APR 2025 11:32
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.3) (preloaded format=xelatex 2025.3.13)  15 APR 2025 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1413,7 +1413,7 @@ LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/m/n' undefined
 [1
 
 ]
-Overfull \hbox (2.1265pt too wide) in paragraph at lines 262--263
+Overfull \hbox (2.1265pt too wide) in paragraph at lines 261--262
 []\TU/TimesNewRoman(0)/m/n/12 Our work will primarily focus on multivariate tim
 e-series data. Our method employs self-supervised
  []
@@ -1431,7 +1431,7 @@ e-series data. Our method employs self-supervised
 [6]
 File: figures/model_architecture.png Graphic file (type bmp)
 <figures/model_architecture.png>
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 424
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 422
 .
  (C:\Users\Lakon\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
@@ -1441,41 +1441,40 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 
 [8]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 508.
+put line 506.
 
 
 [9]
-Overfull \hbox (13.5191pt too wide) in paragraph at lines 559--559
+Overfull \hbox (13.5191pt too wide) in paragraph at lines 553--553
 [][]\TU/TimesNewRoman(0)/b/n/14.4 Parameter inference from learned representati
 ons of noisy dynamical input 
  []
 
+
+
+[10]
 File: figures/figure2.jpeg Graphic file (type bmp)
 <figures/figure2.jpeg>
 
 
-[10]
-Overfull \hbox (12.37769pt too wide) in paragraph at lines 629--629
+[11]
+Overfull \hbox (12.37769pt too wide) in paragraph at lines 618--618
 [][]\TU/TimesNewRoman(0)/b/n/14.4 Characterizing the effects of hyperparameters
  on VIA-ABC’s performance 
  []
 
 
-Package natbib Warning: Citation `dd' on page 11 undefined on input line 642.
+Package natbib Warning: Citation `dd' on page 12 undefined on input line 631.
 
 
-
-[11]
 
 [12]
 
-[13]
-
-LaTeX Warning: Reference `fig:lotka-volterra' on page 14 undefined on input lin
-e 687.
+LaTeX Warning: Reference `fig:lotka-volterra' on page 13 undefined on input lin
+e 675.
 
 
-Overfull \hbox (16.17542pt too wide) in paragraph at lines 684--689
+Overfull \hbox (16.17542pt too wide) in paragraph at lines 672--677
 \OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/
 m/it/12 ; y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$\TU/TimesNewRom
 an(0)/m/n/12 evaluated at , by setting $\OML/cmm/m/it/12 ^^R \OT1/cmr/m/n/12 = 
@@ -1484,10 +1483,12 @@ s our noisy input data $\OML/cmm/m/it/12 s[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12
  f\OML/cmm/m/it/12 x[]; y[]; [] ; x[]; y[]\OMS/cmsy/m/n/12 g$
  []
 
-(Park_etal.bbl
+
+
+[13] (Park_etal.bbl
 
 [14]
-Underfull \hbox (badness 1412) in paragraph at lines 99--104
+Underfull \hbox (badness 1412) in paragraph at lines 105--110
 []\TU/TimesNewRoman(0)/m/n/12 Irina Higgins, Loic Matthey, Arka Pal, Christophe
 r Burgess, Xavier Glorot, Matthew
  []
@@ -1516,12 +1517,12 @@ Package rerunfilecheck Info: File `Park_etal.out' has not changed.
 (rerunfilecheck)             Checksum: 76CE7F8DB513B4CB8AC088A4199D7EB6;195.
  ) 
 Here is how much of TeX's memory you used:
- 39448 strings out of 408639
- 804953 string characters out of 5744777
- 1266243 words of memory out of 5000000
- 61888 multiletter control sequences out of 15000+600000
+ 39451 strings out of 408639
+ 805031 string characters out of 5744777
+ 1267243 words of memory out of 5000000
+ 61891 multiletter control sequences out of 15000+600000
  576954 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,18n,101p,1267b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,18n,101p,1238b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Park_etal.pdf (16 pages).
