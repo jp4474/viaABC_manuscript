@@ -558,17 +558,19 @@ This system is expressed as a pair of nonlinear differential equations,
 where $a$ and  $b$ denote rates of population growth of the prey and their per capita loss due to predation.
 Parameters $c$ and $d$ represent the efficiency with which consumed prey are converted into predator offspring and loss of the predators, respectively.
 The Lotka-Volterra model is a well-studied system, and its parameters have been estimated using various methods, including ABC~\citep{toni2009approximate, prangle2017adapting}, ABC with distributional Random Forest (ABC-DRF)~\citep{dinh2024approximate}, and ABC with Deep Learning (ABC-DL)~\citep{Baragatti2024aa}.
-In this study, we fixed parameters $c=d=1$  and aim to infer \( \theta = (a, b)\), from the prior probabilities  \( a, b \sim \text{Uniform}(0, 10)\), following the approach described in Toni~\citep{toni2009approximate} and Dinh~\citep{dinh2024approximate} \etal.
+We leverage the popularity of this model to assess and compare the efficacy of the VIA-ABC algorithm.
+We adhered to the methodology outlined in Toni~\citep{toni2009approximate} and Dinh~\citep{dinh2024approximate} \etal., fixed parameters $c=d=1$  and sought to infer \( \theta = (a, b)\) using , from the prior probabilities  \( a, b \sim \text{Uniform}(0, 10)\).
 %We also validated our approach in a scenario where we inferred all four parameters WE CAN TRY!
 
-We generated $N=50000$ training simulations of prey, predator dynamics~(shown as lines in~\textbf{Figure~\ref{fig:lv}A}), by sampling $\theta$ from the prior using the latin hypercube sampler.  
+We generated $N=50000$ training simulations of prey, predator dynamics~(shown as lines in~\textbf{Figure~\ref{fig:lv}A}), by sampling $\theta$ from the prior distributions using the \blue{latin hypercube sampler.}  
 Each simulation produces a bivariate time series.
-We selected eight time points between $t=0$ and $15$ to represent our training data $u^{\mathrm{train}} = \{x^n_1, y^n_1, \dots, x^n_8, y^n_8\}$, where $n$ is an integer $\in [0, N]$. %, similar to Toni~\citep{toni2009approximate} \etal. 
-We trained TSM-VAE on $s^{\mathrm{train}}$ such that \blue{$\sim12$\% }of each time series is masked from the encoder.
+We selected eight time points between $t=0$ and $15$ to represent our \blue{training data
+$u^{\mathrm{train}} = \cup_{n=1}^N\{x^n_1, y^n_1, \dots, x^n_8, y^n_8\}$}. %, where $n$ is an integer $\in [0, N]$. %, similar to Toni~\citep{toni2009approximate} \etal. 
+We trained TSM-VAE on $u^{\mathrm{train}}$ such that \blue{$\sim12$\% }of each time series is masked from the encoder.
 The comparison between reconstructions of masked and unmasked training data shows that TSM-VAE  effectively imputes missing observations using the patterns within the seen data~(\textbf{Figure~\ref{fig:lv}B}). %  four randomly picked. 
-This means that the latent space is well-regularized and the encoder has learned the contextual information within the input.
+This means that the encoder has learned the contextual information within the input and constructed a well-regularized latent space capable of handling sparse and noisy data.
 
-We then synthesized a test dataset (see methods for details) by evaluating $x, y$ at the same eight time points as $s^{\mathrm{train}}$ by setting \( \theta = (1, 1)\).
+We then synthesized a test dataset (see methods for details) by evaluating $x, y$ at the same eight time points as the training samples, by setting \( \theta = (1, 1)\).
 We added Gaussian noise \(\epsilon_t \sim \mathcal{N}(0, 0.5^2)\) to this data to represent stochastic and experimental variation typically associated with biological samples.
 This forms our noisy dynamical input $u^{\mathrm{obs}} = \{x^o_1, y^o_1, \dots, x^o_8, y^o_8\}$~(shown as dots in~\textbf{Figure~\ref{fig:lv}A}), which we refer to as observed data for consistency with previous studies.
 In~\textbf{Figure~\ref{fig:lv}C}, we show the reconstruction of the denoised $u^{\mathrm{obs}}$~(original data as dots, reconstructed as lines).
@@ -579,26 +581,25 @@ To note, data is encoded to a higher latent dimension, which we believe helps in
 Specifically, we sample $\theta$ from the bivariate uniform prior, generate simulated data $u^{\mathrm{sim}} = \{x^s_1, y^s_1, \dots, x^s_8, y^s_8\}$ and encode it to the latent variable $z^{\mathrm{sim}}$.
 We accept 1000 $\theta$ particles based on the cosine similarity of $z^{\mathrm{sim}}$ to $z^{\mathrm{obs}}$.
 This procedure is repeated till the stopping rule described in the~\textbf{Algorithm~\ref{alg:viaABC}} is satisfied.
-We visualized the latent representation of all the simulated data [\blue{num iterations, num samples}] and observed data by projecting them to two-dimensions using the UMAP algorithm~(\textbf{Figure~\ref{fig:lv}D}).
-We observed that the dynamics generated from similar parameter values were closely embedded, suggesting that the latent variables that we used to perform ABC-SMC contain an interpretable, ordered representation of the not really! model parameters. 
-We also found that the predictions generated from accepted particles (highlighted in yellow) are clustered within the regions with high density of parameter values close to the ground truth \ie $a,b =1$.
 
-\begin{figure}
+We visualized the latent representation of all the simulated data [\blue{num iterations, num samples}]  using UMAP~CITE~(\textbf{Figure~\ref{fig:lv}D}), which shows that the latent encoding of the dynamics generated from similar parameter values were closely embedded.
+\blue{Keeping in mind that UMAP visualizations are 2-dimensional projections of 32-dimensional latent variables, we conclude that the latent variables that we used to perform ABC-SMC represent an interpretable, ordered evaluations of model parameters.}
+In support of this, we find the predictions made by the ABC-SMC accepted particles (shown in yellow in~\textbf{Figure~\ref{fig:lv}D}) are concentrated in the region with high density of parameter values close to the ground truth \ie $a,b =1$.
+
+In Figure~\ref{fig:lv}E, we show the posterior densities of the accepted particles for parameters $a, b$, which form a bivariate normal distribution with \blue{means XX and covariance matrix XX.}
+The 0.95 quantile prediction intervals of the prey, predator dynamics generated using the posterior densities of $a, b$ completely covered the noisy input and the median of the interval closely overlapped with the denoised observed data.  
+
+
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{figures/figure2.jpeg}
 \caption{\textbf{Learning and inferring predator-prey dynamics using VIA-ABC}.
+NOT DONE YET
 Visualization of the latent representation of simulated and observed data and the final posterior
 Density plot of the final iteration of viaABC. The estimated 95\% highest posterior density (HPD) intervals for a and b are [0.9510, 1.1883] and [0.7685, 1.3525], respectively.}
     \label{fig:lv}
 \end{figure}
 
-- predictions (including reconstruction?) and posterior surface.
-high dense regions around the ground truth -- means its working. 
-
-
-- Parameter acceptance 
-
-red is gt
 
 
 \begin{table}[htbp]
@@ -617,7 +618,7 @@ Var(b) & \textbf{0.0299} & 0.3593 & 0.1049 & 0.0313 \\
 \label{tab:lotka_volterra_results} % Add a label for referencing
 \end{table}
 
-
+\newpage
 \subsection*{Characterizing the effects of hyperparameters on VIA-ABC's performance}
 
 \textbf{Masking ratio.} Figure shows the influence of the masking ratio. The ratio of 15\% seems to work well, which is in agreement with the behavior of BERT \citep{devlin2019bert}, whose masking ratio is 15\%. 

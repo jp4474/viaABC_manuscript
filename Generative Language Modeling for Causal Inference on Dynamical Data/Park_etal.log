@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.18)  13 APR 2025 23:50
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.18)  15 APR 2025 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1399,20 +1399,20 @@ mm/m/it/12 ^^O\OMS/cmsy/m/n/12 g$
 [7]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 500.
- [8] [9]
+ [8] [9] [10]
 File: figures/figure2.jpeg Graphic file (type bmp)
 <figures/figure2.jpeg>
- [10] [11]
+ [11]
 
-Package natbib Warning: Citation `dd' on page 12 undefined on input line 634.
+Package natbib Warning: Citation `dd' on page 12 undefined on input line 635.
 
-[12] [13]
+[12]
 
-LaTeX Warning: Reference `fig:lotka-volterra' on page 14 undefined on input lin
-e 679.
+LaTeX Warning: Reference `fig:lotka-volterra' on page 13 undefined on input lin
+e 680.
 
 
-Overfull \hbox (13.34857pt too wide) in paragraph at lines 676--681
+Overfull \hbox (13.34857pt too wide) in paragraph at lines 677--682
 \OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/
 m/it/12 ; y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$\TU/MinionPro(0
 )/m/n/12 evaluated at , by setting $\OML/cmm/m/it/12 ^^R \OT1/cmr/m/n/12 = (1\O
@@ -1421,7 +1421,7 @@ isy input data $\OML/cmm/m/it/12 s[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\OML/c
 mm/m/it/12 x[]; y[]; [] ; x[]; y[]\OMS/cmsy/m/n/12 g$
  []
 
-(./Park_etal.bbl [14] [15])
+[13] (./Park_etal.bbl [14] [15])
 
 Package natbib Warning: There were undefined citations.
 
@@ -1432,16 +1432,19 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Park_etal.out' has not changed.
 (rerunfilecheck)             Checksum: 76CE7F8DB513B4CB8AC088A4199D7EB6;195.
  ) 
 Here is how much of TeX's memory you used:
  37192 strings out of 476919
  751955 string characters out of 5821840
- 1142464 words of memory out of 5000000
+ 1141464 words of memory out of 5000000
  56487 multiletter control sequences out of 15000+600000
  421547 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,18n,107p,1265b,521s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,18n,107p,1265b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Park_etal.pdf (16 pages).
