@@ -10,45 +10,45 @@ Warning--I didn't find a database entry for "dd"
 Warning--empty journal in ansari2024chronos
 Warning--empty journal in prangle2017adapting
 Warning--empty journal in Baragatti2024aa
-You've used 30 entries,
+You've used 31 entries,
             1791 wiz_defined-function locations,
-            631 strings with 10170 characters,
-and the built_in function-call counts, 7385 in all, are:
-= -- 587
-> -- 482
+            635 strings with 10391 characters,
+and the built_in function-call counts, 7584 in all, are:
+= -- 599
+> -- 502
 < -- 2
-+ -- 172
-- -- 142
-* -- 565
-:= -- 1242
-add.period$ -- 89
-call.type$ -- 30
-change.case$ -- 29
++ -- 179
+- -- 148
+* -- 579
+:= -- 1281
+add.period$ -- 92
+call.type$ -- 31
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 289
-empty$ -- 641
-format.name$ -- 142
-if$ -- 1566
+cite$ -- 34
+duplicate$ -- 297
+empty$ -- 655
+format.name$ -- 148
+if$ -- 1606
 int.to.chr$ -- 0
-int.to.str$ -- 30
-missing$ -- 30
-newline$ -- 152
-num.names$ -- 30
-pop$ -- 86
+int.to.str$ -- 31
+missing$ -- 31
+newline$ -- 157
+num.names$ -- 31
+pop$ -- 89
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 124
+skip$ -- 127
 stack$ -- 0
 substring$ -- 453
-swap$ -- 54
+swap$ -- 55
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 64
-width$ -- 32
-write$ -- 313
+while$ -- 65
+width$ -- 33
+write$ -- 323
 (There were 5 warnings)

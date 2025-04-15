@@ -89,6 +89,12 @@ David~M. Blei, Alp Kucukelbir, and Jon~D. McAuliffe.
 Diederik~P Kingma, Max Welling, et~al.
 \newblock Auto-encoding variational bayes, 2013.
 
+\bibitem{girin2020dynamical}
+Laurent Girin, Simon Leglaive, Xiaoyu Bie, Julien Diard, Thomas Hueber, and
+  Xavier Alameda-Pineda.
+\newblock Dynamical variational autoencoders: A comprehensive review.
+\newblock {\em arXiv preprint arXiv:2008.12595}, 2020.
+
 \bibitem{mckay2000comparison}
 Michael~D McKay, Richard~J Beckman, and William~J Conover.
 \newblock A comparison of three methods for selecting values of input variables
