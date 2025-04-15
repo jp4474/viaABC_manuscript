@@ -5,6 +5,7 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: refs.bib
+Warning--I didn't find a database entry for "wang2019variational"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "dd"
 Warning--empty journal in ansari2024chronos
@@ -12,7 +13,7 @@ Warning--empty journal in prangle2017adapting
 Warning--empty journal in Baragatti2024aa
 You've used 31 entries,
             1791 wiz_defined-function locations,
-            635 strings with 10391 characters,
+            636 strings with 10410 characters,
 and the built_in function-call counts, 7584 in all, are:
 = -- 599
 > -- 502
@@ -51,4 +52,4 @@ warning$ -- 3
 while$ -- 65
 width$ -- 33
 write$ -- 323
-(There were 5 warnings)
+(There were 6 warnings)
